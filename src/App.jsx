@@ -2,7 +2,7 @@ import { BrowserRouter, Navigate, Route, Routes, useLocation } from 'react-route
 import { AnimatePresence, motion } from 'framer-motion'
 import { AppStateProvider } from './context/AppStateContext.jsx'
 import BottomNav from './components/layout/BottomNav.jsx'
-import PhoneMockup, { useIsDesktop } from './components/layout/PhoneMockup.jsx'
+import PhoneMockup, { PHONE_SAFE_TOP, useIsDesktop } from './components/layout/PhoneMockup.jsx'
 import Practice from './screens/Practice.jsx'
 import GamesHub from './screens/GamesHub.jsx'
 import GamePlay from './screens/GamePlay.jsx'
@@ -25,12 +25,11 @@ function AppRoutes() {
   return (
     <div className={`relative isolate ${isDesktop ? 'h-full w-full overflow-hidden' : 'min-h-dvh'}`}>
       <div
-        className={
+        className={isDesktop ? 'absolute inset-0 overflow-x-hidden overflow-y-auto' : ''}
+        style={
           isDesktop
-            ? `absolute inset-x-0 top-0 overflow-x-hidden overflow-y-auto ${showNav ? 'bottom-[7.5rem]' : 'bottom-0'}`
-            : showNav
-              ? 'pb-[7.5rem]'
-              : ''
+            ? { paddingTop: PHONE_SAFE_TOP }
+            : { paddingTop: 'max(1.25rem, env(safe-area-inset-top))' }
         }
       >
         <AnimatePresence>
@@ -40,6 +39,7 @@ function AppRoutes() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
+            className="flex min-h-full flex-col"
           >
             <Routes location={location}>
               <Route path="/" element={<Practice />} />

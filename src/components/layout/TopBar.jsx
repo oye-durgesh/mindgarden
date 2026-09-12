@@ -24,7 +24,11 @@ export default function TopBar({ greeting, timeOfDay, rightSlot, onBack }) {
             </button>
           )}
           {greeting && (
-            <h1 className="font-serif text-[28px] leading-tight tracking-tight">
+            <h1
+              className={`font-serif text-[28px] leading-tight tracking-tight ${
+                light ? 'text-text-onLight' : 'text-text-onDark'
+              }`}
+            >
               {greeting}
             </h1>
           )}

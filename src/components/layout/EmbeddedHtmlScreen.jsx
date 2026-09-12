@@ -7,7 +7,7 @@ export default function EmbeddedHtmlScreen({ src, title, backTo = '/' }) {
   const isDesktop = useIsDesktop()
 
   return (
-    <div className={`overflow-hidden bg-black ${isDesktop ? 'absolute inset-0' : 'relative h-dvh w-full'}`}>
+    <div className={`overflow-hidden bg-black ${isDesktop ? 'h-full min-h-full' : 'relative h-dvh w-full'}`}>
       <button
         type="button"
         onClick={() => navigate(backTo)}

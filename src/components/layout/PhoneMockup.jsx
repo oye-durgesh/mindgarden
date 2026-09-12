@@ -1,5 +1,9 @@
 import { useEffect, useState } from 'react'
 
+// Island sits at top:20 with height 34; pad content below it plus a small buffer.
+export const PHONE_SAFE_TOP = 64
+export const PHONE_SAFE_BOTTOM = 120
+
 export function useIsDesktop() {
   const query = () => (typeof window !== 'undefined' ? window.innerWidth > 768 : false)
   const [isDesktop, setIsDesktop] = useState(query)
