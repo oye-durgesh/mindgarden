@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-function useIsDesktop() {
+export function useIsDesktop() {
   const query = () => (typeof window !== 'undefined' ? window.innerWidth > 768 : false)
   const [isDesktop, setIsDesktop] = useState(query)
 
@@ -27,7 +27,7 @@ export default function PhoneMockup({ children }) {
   return (
     <div className="flex min-h-dvh items-center justify-center overflow-auto bg-gradient-to-br from-[#e8e4f0] via-[#ddd7e8] to-[#d2cbdf] px-6 py-10">
       <div
-        className="relative shrink-0"
+        className="relative isolate shrink-0 overflow-hidden"
         style={{
           width: 417,
           height: 876,
@@ -49,12 +49,11 @@ export default function PhoneMockup({ children }) {
           aria-hidden
         />
         <div
-          className="h-full w-full overflow-x-hidden overflow-y-auto"
+          className="relative isolate h-full w-full overflow-hidden"
           style={{
             width: 393,
             height: 852,
             borderRadius: 43,
-            transform: 'translateZ(0)',
           }}
         >
           {children}

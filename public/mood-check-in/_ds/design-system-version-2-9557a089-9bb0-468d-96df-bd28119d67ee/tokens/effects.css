@@ -1,0 +1,52 @@
+/* BackWithBrain — Effects: shadows, glass recipes, grain */
+
+:root {
+  /* ── Elevation / shadows ─────────────────────────────────────── */
+  --shadow-card:  0 4px 16px rgba(36, 26, 62, 0.08);
+  --shadow-raise: 0 8px 28px rgba(36, 26, 62, 0.12);
+  --shadow-float: 0 14px 40px rgba(36, 26, 62, 0.16);
+  --shadow-btn:   0 8px 24px rgba(36, 26, 62, 0.35),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  --shadow-btn-press: 0 4px 12px rgba(36, 26, 62, 0.35),
+                      inset 0 1px 0 rgba(255, 255, 255, 0.10);
+  --shadow-btn-hover: 0 10px 28px rgba(36, 26, 62, 0.45),
+                      inset 0 1px 0 rgba(255, 255, 255, 0.12);
+
+  /* ── Glass recipes (each: bg · border · blur · glow · inner highlight) ── */
+  /* Neutral glass — player, splash */
+  --glass-neutral-bg:     rgba(255, 255, 255, 0.12);
+  --glass-neutral-border: rgba(255, 255, 255, 0.25);
+  --glass-neutral-blur:   16px;
+  --glass-neutral-glow:   0 8px 32px rgba(0, 0, 0, 0.20);
+  --glass-inner-hi:       inset 0 1px 0 rgba(255, 255, 255, 0.30); /* @kind shadow */
+
+  /* Purple glass — Daily Detox */
+  --glass-purple-bg:     rgba(168, 143, 208, 0.18);
+  --glass-purple-border: rgba(184, 160, 224, 0.40);
+  --glass-purple-glow:   0 8px 30px rgba(132, 57, 201, 0.35);
+
+  /* Gold glass — reward / celebration */
+  --glass-gold-bg:     rgba(240, 200, 104, 0.16);
+  --glass-gold-border: rgba(240, 200, 104, 0.45);
+  --glass-gold-glow:   0 6px 24px rgba(224, 176, 80, 0.30);
+  --glass-gold-text-dark:  #FFE9B0;
+  --glass-gold-text-light: #7A5A18;
+
+  /* Blue glass — Sleep */
+  --glass-blue-bg:     rgba(141, 163, 196, 0.18);
+  --glass-blue-border: rgba(141, 163, 196, 0.40);
+  --glass-blue-glow:   0 8px 28px rgba(91, 127, 184, 0.30);
+
+  /* Frosted white pill — light buttons on glass */
+  --glass-frost-bg:     rgba(255, 255, 255, 0.90);
+  --glass-frost-border: rgba(255, 255, 255, 0.60);
+  --glass-frost-text:   #4A3A6B;
+
+  /* ── Motion ──────────────────────────────────────────────────── */
+  --ease-calm:   cubic-bezier(0.22, 0.61, 0.36, 1); /* @kind other */
+  --ease-soft:   cubic-bezier(0.4, 0, 0.2, 1);      /* @kind other */
+  --dur-quick:   160ms; /* @kind other */
+  --dur-base:    240ms; /* @kind other */
+  --dur-slow:    420ms; /* @kind other */
+  --press-scale: 0.96;  /* @kind other */
+}

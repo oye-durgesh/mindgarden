@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/design-system-version-2-9557a089-9bb0-468d-96df-bd28119d67ee/tokens/fonts.css" />
+<link rel="stylesheet" href="_ds/design-system-version-2-9557a089-9bb0-468d-96df-bd28119d67ee/tokens/colors.css" />
+<link rel="stylesheet" href="_ds/design-system-version-2-9557a089-9bb0-468d-96df-bd28119d67ee/styles.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,400;9..144,0,500;9..144,1,400&family=Plus+Jakarta+Sans:wght@400;500&display=swap" />
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+<script src="_ds/design-system-version-2-9557a089-9bb0-468d-96df-bd28119d67ee/_ds_bundle.js"></script>
+<style>
+  * { box-sizing:border-box; }
+  @keyframes tv_rise { from{ opacity:0; transform:translateY(16px) } to{ opacity:1; transform:translateY(0) } }
+  @keyframes tv_rock { 0%,100%{ transform:rotate(-5deg) } 50%{ transform:rotate(5deg) } }
+  @keyframes tv_twinkle { 0%,100%{ opacity:0.25; transform:scale(0.8) } 50%{ opacity:1; transform:scale(1) } }
+  @keyframes tv_steady { 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-0.5px) } }
+  @keyframes tv_ecg { 0%{ stroke-dashoffset:66 } 100%{ stroke-dashoffset:-210 } }
+  @keyframes tv_beat { 0%,100%{ transform:scale(1); opacity:.55 } 6%{ transform:scale(1.5); opacity:1 } 12%{ transform:scale(1); opacity:.55 } 26%{ transform:scale(1.4); opacity:1 } 32%{ transform:scale(1); opacity:.55 } 56%{ transform:scale(1.28); opacity:.85 } 62%{ transform:scale(1); opacity:.5 } }
+  @keyframes tv_ring1 { 0%,100%{ transform:scale(0.46); opacity:0.28 } 50%{ transform:scale(1.04); opacity:0.6 } }
+  @keyframes tv_ring2 { 0%,100%{ transform:scale(0.66); opacity:0.45 } 50%{ transform:scale(0.84); opacity:0.85 } }
+  @keyframes tv_dot { 0%,100%{ transform:scale(0.7); opacity:0.85 } 50%{ transform:scale(1.05); opacity:1 } }
+  @keyframes tv_pa { 0%,100%{ transform:translate(0,0); opacity:0.5 } 50%{ transform:translate(0,-6px); opacity:0.95 } }
+  @keyframes tv_pb { 0%,100%{ transform:translate(0,0); opacity:0.45 } 50%{ transform:translate(4px,-4px); opacity:0.9 } }
+  @keyframes tv_pc { 0%,100%{ transform:translate(0,0); opacity:0.6 } 50%{ transform:translate(-4px,-3px); opacity:0.95 } }
+  @keyframes tv_glow { 0%,100%{ filter:drop-shadow(0 0 3px rgba(232,217,184,0.35)) } 50%{ filter:drop-shadow(0 0 10px rgba(232,217,184,0.75)) } }
+  @keyframes tv_cloud { 0%{ transform:translateX(-3px) } 50%{ transform:translateX(4px) } 100%{ transform:translateX(-3px) } }
+  @keyframes tv_plane { 0%{ transform:translateX(-3px) translateY(1px) } 50%{ transform:translateX(3px) translateY(-1px) } 100%{ transform:translateX(-3px) translateY(1px) } }
+  .tv-scroll::-webkit-scrollbar { width:0; }
+  .tv-scroll { scrollbar-width:none; }
+</style>
+</helmet>
+
+<div data-screen-label="Travel mode" style="width:390px; height:844px; border-radius:30px; overflow:hidden; position:relative; background:{{ bg }}; font-family:'Plus Jakarta Sans',sans-serif;">
+
+  <div style="position:absolute; right:-70px; top:80px; width:280px; height:280px; border-radius:50%; pointer-events:none; filter:blur(60px); background:{{ blob }};"></div>
+  <div style="position:absolute; left:-60px; top:340px; width:240px; height:240px; border-radius:50%; pointer-events:none; filter:blur(70px); background:{{ blob2 }};"></div>
+  <div style="position:absolute; inset:0; pointer-events:none; opacity:0.045; mix-blend-mode:{{ grainBlend }}; background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='tvg'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23tvg)'/%3E%3C/svg%3E&quot;);"></div>
+
+  <div class="tv-scroll" style="position:absolute; inset:0; overflow-y:auto; padding:54px 20px 40px;">
+
+    <!-- header -->
+    <div style="display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:8px; animation:tv_rise .55s cubic-bezier(0.22,0.61,0.36,1) .05s both;">
+      <div style="display:flex; align-items:center; gap:11px;">
+        <i class="ph ph-caret-left" style="font-size:24px; color:{{ icon }}; cursor:pointer;"></i>
+        <div style="font:500 26px 'Fraunces',serif; color:{{ text }};">Travel mode</div>
+      </div>
+      <div style="width:50px; height:30px; border-radius:999px; background:{{ toggleOn }}; position:relative; cursor:pointer; box-shadow:inset 0 1px 3px rgba(0,0,0,0.18);"><div style="position:absolute; top:3px; right:3px; width:24px; height:24px; border-radius:50%; background:#fff; box-shadow:0 2px 5px rgba(0,0,0,0.25);"></div></div>
+    </div>
+
+    <!-- streak safe banner -->
+    <div style="display:flex; align-items:center; gap:11px; padding:14px 16px; border-radius:16px; background:{{ safeBg }}; border:1px solid {{ safeBorder }}; backdrop-filter:blur(12px); margin-bottom:24px; animation:tv_rise .55s cubic-bezier(0.22,0.61,0.36,1) .12s both;">
+      <i class="ph-fill ph-airplane-tilt" style="font-size:21px; color:{{ blueIcon }}; animation:tv_plane 4s ease-in-out infinite;"></i>
+      <div style="flex:1;"><div style="font:500 14px 'Plus Jakarta Sans'; color:{{ text }};">Your streak is safe while you travel ✈️</div><div style="font:400 12px 'Plus Jakarta Sans'; color:{{ sub }}; margin-top:2px;">No pressure — pick it back up whenever you land 🌱</div></div>
+    </div>
+
+    <!-- rest now -->
+    <div style="font:500 18px 'Fraunces',serif; color:{{ text }}; margin-bottom:4px; animation:tv_rise .55s cubic-bezier(0.22,0.61,0.36,1) .18s both;">Rest now</div>
+    <div style="font:400 13px 'Plus Jakarta Sans'; color:{{ sub }}; margin-bottom:16px; animation:tv_rise .55s cubic-bezier(0.22,0.61,0.36,1) .2s both;">Calm for wherever the day takes you.</div>
+
+    <div style="display:flex; flex-direction:column; gap:12px;">
+      <sc-for list="{{ cards }}" as="c" hint-placeholder-count="5">
+        <div style="{{ c.cardStyle }}" style-active="transform:scale(0.97)">
+
+          <div style="{{ c.tileStyle }}">
+
+            <!-- 1. rocking horizon + steady center -->
+            <sc-if value="{{ c.isHorizon }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute; left:50%; top:50%; width:48px; height:24px; margin:-12px 0 0 -24px; transform-origin:center; animation:tv_rock 8s ease-in-out infinite;">
+                <svg viewBox="0 0 48 24" style="width:48px; height:24px; overflow:visible;">
+                  <path d="M3 15 Q24 7 45 15" fill="none" stroke="{{ blueIcon }}" stroke-width="2" stroke-linecap="round"></path>
+                </svg>
+              </div>
+              <div style="position:absolute; left:50%; top:50%; width:7px; height:7px; margin:-5px 0 0 -3.5px; border-radius:50%; background:{{ blueDot }}; box-shadow:0 0 8px {{ blueDot }};"></div>
+            </sc-if>
+
+            <!-- 2. slowing heartbeat pulse -->
+            <sc-if value="{{ c.isHeart }}" hint-placeholder-val="{{ false }}">
+              <svg viewBox="0 0 58 32" style="width:48px; height:30px; overflow:visible;">
+                <path d="M2 16 H18 L21 16 L24 7 L27 25 L30 16 L33 16 H56" fill="none" stroke="{{ purpleFaint }}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M2 16 H18 L21 16 L24 7 L27 25 L30 16 L33 16 H56" fill="none" stroke="{{ purpleIcon }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="22 240" style="animation:tv_ecg 5s cubic-bezier(0.2,0.7,0.3,1) infinite; filter:drop-shadow(0 0 4px {{ purpleIcon }});"></path>
+              </svg>
+              <div style="position:absolute; right:11px; top:50%; width:6px; height:6px; margin-top:-3px; border-radius:50%; background:{{ purpleDot }}; box-shadow:0 0 6px {{ purpleDot }}; animation:tv_beat 5s ease-in-out infinite;"></div>
+            </sc-if>
+
+            <!-- 3. concentric breathing rings -->
+            <sc-if value="{{ c.isRings }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute; inset:0; display:grid; place-items:center;">
+                <div style="position:absolute; width:46px; height:46px; border-radius:50%; border:1.5px solid {{ blueIcon }}; animation:tv_ring1 8s ease-in-out infinite;"></div>
+                <div style="position:absolute; width:46px; height:46px; border-radius:50%; border:1.5px solid {{ purpleIcon }}; animation:tv_ring2 8s ease-in-out infinite;"></div>
+                <div style="width:14px; height:14px; border-radius:50%; background:{{ ringDot }}; animation:tv_dot 8s ease-in-out infinite;"></div>
+              </div>
+            </sc-if>
+
+            <!-- 4. settling particles -->
+            <sc-if value="{{ c.isParticles }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute; inset:0;">
+                <span style="position:absolute; left:14px; top:18px; width:5px; height:5px; border-radius:50%; background:{{ sageIcon }}; animation:tv_pa 6s ease-in-out infinite;"></span>
+                <span style="position:absolute; left:28px; top:30px; width:4px; height:4px; border-radius:50%; background:{{ sageIcon }}; animation:tv_pb 7s ease-in-out .4s infinite;"></span>
+                <span style="position:absolute; left:38px; top:16px; width:6px; height:6px; border-radius:50%; background:{{ sageIcon }}; animation:tv_pc 6.6s ease-in-out .9s infinite;"></span>
+                <span style="position:absolute; left:20px; top:38px; width:4px; height:4px; border-radius:50%; background:{{ sageIcon }}; animation:tv_pa 7.4s ease-in-out 1.2s infinite;"></span>
+                <span style="position:absolute; left:42px; top:34px; width:5px; height:5px; border-radius:50%; background:{{ sageIcon }}; animation:tv_pc 6.2s ease-in-out .6s infinite;"></span>
+                <span style="position:absolute; left:32px; top:22px; width:3px; height:3px; border-radius:50%; background:{{ sageIcon }}; animation:tv_pb 7.8s ease-in-out 1.5s infinite;"></span>
+              </div>
+            </sc-if>
+
+            <!-- 5. moon + drifting clouds glow -->
+            <sc-if value="{{ c.isMoon }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute; inset:0;">
+                <span style="position:absolute; left:13px; top:13px; width:2.5px; height:2.5px; border-radius:50%; background:#E8D9B8; animation:tv_twinkle 3s ease-in-out infinite;"></span>
+                <span style="position:absolute; left:40px; top:11px; width:2px; height:2px; border-radius:50%; background:#E8D9B8; animation:tv_twinkle 3.6s ease-in-out .7s infinite;"></span>
+                <span style="position:absolute; left:44px; top:24px; width:2.5px; height:2.5px; border-radius:50%; background:#E8D9B8; animation:tv_twinkle 4.2s ease-in-out 1.3s infinite;"></span>
+                <div style="position:absolute; left:17px; top:10px; width:24px; height:24px; border-radius:50%; background:{{ moonFill }}; box-shadow:inset -7px 2px 0 0 {{ tileBlue }}; animation:tv_glow 8s ease-in-out infinite;"></div>
+                <div style="position:absolute; left:9px; top:37px; width:22px; height:6px; border-radius:6px; background:{{ cloudFill }}; animation:tv_cloud 9s ease-in-out infinite;"></div>
+                <div style="position:absolute; left:30px; top:30px; width:15px; height:5px; border-radius:5px; background:{{ cloudFill2 }}; animation:tv_cloud 10s ease-in-out 1s infinite;"></div>
+              </div>
+            </sc-if>
+
+          </div>
+
+          <div style="flex:1; min-width:0;">
+            <div style="font:500 15.5px 'Fraunces',serif; color:{{ text }};">{{ c.title }}</div>
+            <div style="font:400 12.5px/1.4 'Plus Jakarta Sans'; color:{{ sub }}; margin-top:3px; text-wrap:pretty;">{{ c.line }}</div>
+          </div>
+          <div style="font:500 12px 'Plus Jakarta Sans'; color:{{ c.durColor }}; white-space:nowrap; align-self:flex-start; padding-top:2px;">{{ c.dur }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <!-- settings note -->
+    <div style="display:flex; align-items:center; gap:9px; margin-top:24px; padding:0 4px; animation:tv_rise .55s cubic-bezier(0.22,0.61,0.36,1) .56s both;">
+      <i class="ph ph-clock-countdown" style="font-size:15px; color:{{ faint }};"></i>
+      <span style="font:400 12.5px 'Plus Jakarta Sans'; color:{{ faint }};">Auto-off reminder in 2 days</span>
+    </div>
+    <div style="text-align:center; margin-top:20px; animation:tv_rise .55s cubic-bezier(0.22,0.61,0.36,1) .6s both;">
+      <span style="font:500 13.5px 'Plus Jakarta Sans'; color:{{ blueIcon }}; cursor:pointer; border-bottom:1px solid {{ linkUnderline }}; padding-bottom:2px;">Turn off travel mode</span>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844},&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;dark&quot;,&quot;light&quot;],&quot;default&quot;:&quot;dark&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  THEME() {
+    const dark = this.props.theme !== 'light';
+    return dark ? {
+      dark: true,
+      bg: 'radial-gradient(78% 48% at 80% 8%,rgba(91,127,184,0.24),rgba(91,127,184,0) 58%),radial-gradient(64% 42% at 12% 24%,rgba(132,57,201,0.16),rgba(132,57,201,0) 60%),linear-gradient(165deg,#1A1726,#22203A)',
+      blob: 'radial-gradient(circle,rgba(91,127,184,0.32),rgba(91,127,184,0) 70%)',
+      blob2: 'radial-gradient(circle,rgba(132,57,201,0.22),rgba(132,57,201,0) 70%)',
+      grainBlend: 'overlay',
+      text: '#E8E5F0', sub: '#A8A4B5', faint: '#6E6A7C', icon: 'rgba(232,229,240,0.72)',
+      toggleOn: 'linear-gradient(180deg,#6E8FC4,#5072AC)',
+      blueIcon: '#8DA3C4', blueDot: '#E8E5F0',
+      purpleIcon: '#A88FD0', purpleFaint: 'rgba(168,143,208,0.28)', purpleDot: '#C7B4ED',
+      ringDot: 'radial-gradient(circle,#A88FD0,#8DA3C4)',
+      sageIcon: '#A8BBA0',
+      moonFill: '#E8D9B8', cloudFill: 'rgba(91,110,150,0.85)', cloudFill2: 'rgba(91,110,150,0.6)',
+      safeBg: 'rgba(91,127,184,0.12)', safeBorder: 'rgba(91,127,184,0.3)',
+      cardBg: 'rgba(33,30,44,0.6)', cardBorder: 'rgba(255,255,255,0.1)',
+      tileBlue: '#22203A',
+      tileBgBlue: 'rgba(141,163,196,0.18)', tileBgPurple: 'rgba(168,143,208,0.18)', tileBgRings: 'rgba(155,130,200,0.18)', tileBgSage: 'rgba(176,199,164,0.18)', tileBgMoon: 'rgba(91,110,150,0.2)',
+      durColor: '#8A85A0', linkUnderline: 'rgba(141,174,220,0.4)',
+    } : {
+      dark: false,
+      bg: 'radial-gradient(100% 56% at 84% 4%,#E4ECF7,rgba(228,236,247,0) 52%),radial-gradient(86% 60% at 8% 16%,#EDE6F4,rgba(237,230,244,0) 52%),linear-gradient(165deg,#FAF6EE,#F4E4CC)',
+      blob: 'radial-gradient(circle,rgba(91,127,184,0.16),rgba(91,127,184,0) 70%)',
+      blob2: 'radial-gradient(circle,rgba(132,57,201,0.1),rgba(132,57,201,0) 70%)',
+      grainBlend: 'multiply',
+      text: '#3D3A44', sub: '#6B6770', faint: '#9A95A0', icon: '#6B6770',
+      toggleOn: 'linear-gradient(180deg,#6E8FC4,#5072AC)',
+      blueIcon: '#4F77B0', blueDot: '#5B7FB8',
+      purpleIcon: '#8439C9', purpleFaint: 'rgba(132,57,201,0.25)', purpleDot: '#8439C9',
+      ringDot: 'radial-gradient(circle,#9B6FD4,#5B7FB8)',
+      sageIcon: '#76916A',
+      moonFill: '#7E9AC8', cloudFill: 'rgba(91,127,184,0.4)', cloudFill2: 'rgba(91,127,184,0.26)',
+      safeBg: 'rgba(91,127,184,0.1)', safeBorder: 'rgba(91,127,184,0.26)',
+      cardBg: 'rgba(255,255,255,0.66)', cardBorder: '#E7DDCD',
+      tileBlue: '#F2ECE0',
+      tileBgBlue: 'rgba(141,163,196,0.16)', tileBgPurple: 'rgba(168,143,208,0.14)', tileBgRings: 'rgba(155,130,200,0.14)', tileBgSage: 'rgba(176,199,164,0.18)', tileBgMoon: 'rgba(91,110,150,0.14)',
+      durColor: '#9A95A0', linkUnderline: 'rgba(79,119,176,0.4)',
+    };
+  }
+
+  renderVals() {
+    const T = this.THEME();
+    const defs = [
+      { v: 'horizon',   title: 'Motion-sickness breathing', line: 'Slow breathing to ease nausea — eyes open, no screen needed.', dur: '5 min', tile: T.tileBgBlue },
+      { v: 'heart',     title: 'Travel-anxiety reset',      line: 'For flight or cab nerves — settle the nervous system fast.',   dur: '4 min', tile: T.tileBgPurple },
+      { v: 'rings',     title: 'Breathing visual',          line: 'A calming circle to follow. Just match your breath to it.',   dur: '4 min', tile: T.tileBgRings },
+      { v: 'particles', title: 'Waiting-room calm',         line: 'For airports and lobbies — turn dead time into a reset.',      dur: '6 min', tile: T.tileBgSage },
+      { v: 'moon',      title: 'Long-haul sleep',           line: 'Drift off on a flight, even upright in a cramped seat.',       dur: '20 min', tile: T.tileBgMoon },
+    ];
+    const cardBase = 'display:flex; align-items:center; gap:14px; padding:14px 16px; border-radius:18px; cursor:pointer; background:' + T.cardBg + '; border:1px solid ' + T.cardBorder + '; backdrop-filter:blur(10px); box-shadow:' + (T.dark ? '0 6px 18px rgba(12,8,22,0.26)' : '0 5px 16px rgba(36,26,62,0.06)') + '; transition:transform .14s cubic-bezier(0.22,0.61,0.36,1);';
+    const tileBase = 'position:relative; width:58px; height:58px; border-radius:16px; flex:none; overflow:hidden;';
+    const cards = defs.map((d, i) => ({
+      title: d.title, line: d.line, dur: d.dur, durColor: T.durColor,
+      isHorizon: d.v === 'horizon', isHeart: d.v === 'heart', isRings: d.v === 'rings',
+      isParticles: d.v === 'particles', isMoon: d.v === 'moon',
+      tileStyle: tileBase + ' background:' + d.tile + ';',
+      cardStyle: cardBase + ' animation:tv_rise .5s cubic-bezier(0.22,0.61,0.36,1) ' + (0.24 + i * 0.06).toFixed(2) + 's both;',
+    }));
+    return {
+      bg: T.bg, blob: T.blob, blob2: T.blob2, grainBlend: T.grainBlend,
+      text: T.text, sub: T.sub, faint: T.faint, icon: T.icon,
+      toggleOn: T.toggleOn, blueIcon: T.blueIcon, blueDot: T.blueDot,
+      purpleIcon: T.purpleIcon, purpleFaint: T.purpleFaint, purpleDot: T.purpleDot,
+      ringDot: T.ringDot, sageIcon: T.sageIcon,
+      moonFill: T.moonFill, cloudFill: T.cloudFill, cloudFill2: T.cloudFill2, tileBlue: T.tileBlue,
+      safeBg: T.safeBg, safeBorder: T.safeBorder, linkUnderline: T.linkUnderline,
+      cards,
+    };
+  }
+}
+</script>
+</body>
+</html>

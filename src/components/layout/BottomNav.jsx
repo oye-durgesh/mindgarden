@@ -1,6 +1,7 @@
 import { NavLink, useLocation } from 'react-router-dom'
 import { BookOpen, Leaf, Sparkles, UserRound, Users } from 'lucide-react'
 import { getTimeOfDay, isLightTheme } from '../../lib/timeOfDay.js'
+import { useIsDesktop } from './PhoneMockup.jsx'
 
 const TABS = [
   { to: '/', label: 'Practice', icon: Sparkles, end: true },
@@ -13,9 +14,14 @@ const TABS = [
 export default function BottomNav() {
   const location = useLocation()
   const light = isLightTheme(getTimeOfDay())
+  const isDesktop = useIsDesktop()
 
   return (
-    <nav className="pointer-events-none fixed inset-x-0 bottom-0 z-30 mx-auto max-w-md px-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
+    <nav
+      className={`pointer-events-none inset-x-0 bottom-0 z-30 mx-auto max-w-md px-4 pb-[max(1rem,env(safe-area-inset-bottom))] ${
+        isDesktop ? 'absolute' : 'fixed'
+      }`}
+    >
       <div
         className={`pointer-events-auto flex items-end justify-between rounded-[28px] px-3 py-2 ${
           light ? 'glass-light' : 'glass-dark'

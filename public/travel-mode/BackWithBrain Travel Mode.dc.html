@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500&display=swap" />
+</helmet>
+
+<div style="position:absolute; left:40px; top:40px; width:390px;">
+  <div data-drags-parent="1" style="font:500 13px/1 'Plus Jakarta Sans',sans-serif; color:#6B6770; margin:0 0 12px 4px; letter-spacing:0.02em;">Travel mode · dark</div>
+  <dc-import name="TravelMode" theme="dark" hint-size="390px,844px"></dc-import>
+</div>
+<div style="position:absolute; left:510px; top:40px; width:390px;">
+  <div data-drags-parent="1" style="font:500 13px/1 'Plus Jakarta Sans',sans-serif; color:#6B6770; margin:0 0 12px 4px; letter-spacing:0.02em;">Travel mode · light</div>
+  <dc-import name="TravelMode" theme="light" hint-size="390px,844px"></dc-import>
+</div>
+</x-dc>
+</body>
+</html>

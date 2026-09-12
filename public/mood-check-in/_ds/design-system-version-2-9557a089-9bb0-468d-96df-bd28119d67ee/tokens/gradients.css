@@ -1,0 +1,36 @@
+/* BackWithBrain — Gradient tokens
+   Mesh gradients, time-of-day backgrounds, primary-button gradient. */
+
+:root {
+  /* ── Primary button gradient (light theme) ──────────────────── */
+  --grad-primary:       linear-gradient(180deg, #3A2D5C, #241A3E);     /* @kind color */
+  --grad-primary-press: linear-gradient(180deg, #2E2348, #1A1230);     /* @kind color */
+  --grad-nav-circle:    linear-gradient(135deg, #9B52D8, #7331B8);     /* @kind color */
+
+  /* ── Time-of-day backgrounds ─────────────────────────────────── */
+  --grad-morning:   linear-gradient(160deg, #FAF6EE, #F4E4CC);             /* @kind color */
+  --grad-afternoon: linear-gradient(160deg, #FBF4EC, #F2D9C4);             /* @kind color */
+  --grad-evening:   linear-gradient(160deg, #2E2640, #4A3A5E);             /* @kind color */
+  --grad-night:     linear-gradient(160deg, #1A1726, #2E2440);             /* @kind color */
+  --grad-player:    linear-gradient(160deg, #1E1830, #3A2D5C 55%, #2A2142); /* @kind color */
+
+  /* ── Theme base meshes ───────────────────────────────────────── */
+  --mesh-light:
+    radial-gradient(120% 90% at 12% 8%, #FBF6EC 0%, rgba(251,246,236,0) 55%),
+    radial-gradient(100% 80% at 92% 18%, #F6E6CB 0%, rgba(246,230,203,0) 60%),
+    radial-gradient(120% 100% at 70% 100%, #F4E4CC 0%, rgba(244,228,204,0) 60%),
+    linear-gradient(160deg, #FAF6EE, #F4E4CC); /* @kind color */
+  --mesh-dark:
+    radial-gradient(110% 90% at 18% 12%, #3A2D4C 0%, rgba(58,45,76,0) 55%),
+    radial-gradient(90% 80% at 85% 22%, #6B4A6E 0%, rgba(107,74,110,0) 55%),
+    radial-gradient(120% 100% at 60% 100%, #241A3E 0%, rgba(36,26,62,0) 60%),
+    linear-gradient(160deg, #1A1726, #2E2440); /* @kind color */
+  --mesh-aurora:
+    radial-gradient(60% 50% at 25% 25%, rgba(155,107,208,0.55) 0%, rgba(155,107,208,0) 60%),
+    radial-gradient(50% 45% at 80% 70%, rgba(201,168,106,0.40) 0%, rgba(201,168,106,0) 60%),
+    linear-gradient(160deg, #1E1830, #3A2D5C 55%, #2A2142); /* @kind color */
+
+  /* Mesh blob palettes (for reference / inline use) */
+  --blobs-dawn: #F2C078, #E8A04C, #C97FB0, #8439C9, #C9C4E8; /* @kind color */
+  --blobs-dusk: #1A1726, #3A2D4C, #6B4A6E; /* @kind color */
+}

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/design-system-version-2-9557a089-9bb0-468d-96df-bd28119d67ee/tokens/fonts.css" />
+<link rel="stylesheet" href="_ds/design-system-version-2-9557a089-9bb0-468d-96df-bd28119d67ee/tokens/colors.css" />
+<link rel="stylesheet" href="_ds/design-system-version-2-9557a089-9bb0-468d-96df-bd28119d67ee/styles.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,400;9..144,0,500;9..144,1,400&family=Plus+Jakarta+Sans:wght@400;500&display=swap" />
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+<script src="_ds/design-system-version-2-9557a089-9bb0-468d-96df-bd28119d67ee/_ds_bundle.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  .bwb-scroll::-webkit-scrollbar { width:0; height:0; }
+  .bwb-scroll { scrollbar-width:none; }
+  .mood-range { -webkit-appearance:none; appearance:none; width:100%; height:14px; border-radius:999px; outline:none; cursor:pointer; }
+  .mood-range::-webkit-slider-runnable-track { height:14px; border-radius:999px; }
+  .mood-range::-moz-range-track { height:14px; border-radius:999px; }
+  .mood-range::-webkit-slider-thumb { -webkit-appearance:none; appearance:none; width:30px; height:30px; margin-top:-8px; border-radius:50%; background:radial-gradient(circle at 38% 32%,#FBF6FF,#C9A6F0 46%,#8439C9); border:3px solid rgba(255,255,255,0.92); box-shadow:0 4px 16px rgba(132,57,201,0.6), 0 0 0 6px rgba(168,143,208,0.18); cursor:pointer; }
+  .mood-range::-moz-range-thumb { width:30px; height:30px; border:3px solid rgba(255,255,255,0.92); border-radius:50%; background:radial-gradient(circle at 38% 32%,#FBF6FF,#C9A6F0 46%,#8439C9); box-shadow:0 4px 16px rgba(132,57,201,0.6), 0 0 0 6px rgba(168,143,208,0.18); cursor:pointer; }
+  @keyframes mc_bounce { 0%{transform:scale(.84)} 55%{transform:scale(1.05)} 100%{transform:scale(1)} }
+  @keyframes mc_floatUp { 0%{opacity:0; transform:translateY(8px) scale(.6)} 22%{opacity:1} 100%{opacity:0; transform:translateY(-132px) scale(1.15)} }
+  @keyframes mc_savePop { 0%{opacity:0; transform:translateX(-50%) scale(.7)} 60%{opacity:1; transform:translateX(-50%) scale(1.06)} 100%{opacity:1; transform:translateX(-50%) scale(1)} }
+  @keyframes mc_riseIn { from{opacity:0; transform:translateY(12px)} to{opacity:1; transform:translateY(0)} }
+  @keyframes mc_aura { 0%,100%{ transform:translate(-50%,-50%) scale(0.82); opacity:0.62 } 50%{ transform:translate(-50%,-50%) scale(1.12); opacity:1 } }
+</style>
+</helmet>
+
+<div style="width:390px; height:844px; border-radius:30px; overflow:hidden; position:relative; box-shadow:0 18px 50px rgba(20,14,34,0.4); background:{{ bg }}; font-family:'Plus Jakarta Sans',sans-serif;">
+
+  <div style="position:absolute; left:50%; top:{{ ringsTop }}; width:380px; height:380px; transform:translate(-50%,-50%); border-radius:50%; filter:blur(28px); pointer-events:none; background:{{ aura }}; animation:mc_aura 4s ease-in-out infinite;"></div>
+  <div style="position:absolute; inset:0; pointer-events:none; opacity:0.05; mix-blend-mode:{{ grainBlend }}; background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='mcg'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23mcg)'/%3E%3C/svg%3E&quot;);"></div>
+
+  <!-- FULL SCREEN -->
+  <sc-if value="{{ isFull }}" hint-placeholder-val="{{ true }}">
+    <div class="bwb-scroll" style="position:absolute; inset:0; overflow-y:auto; padding:52px 24px 38px; display:flex; flex-direction:column;">
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:18px;">
+        <i class="ph ph-caret-left" style="font-size:24px; color:{{ icon }}; cursor:pointer;"></i>
+        <div style="font:500 18px 'Fraunces',serif; color:{{ text }};">Mood check-in</div>
+        <i class="ph ph-bell" style="font-size:21px; color:{{ icon }}; cursor:pointer;"></i>
+      </div>
+      <div style="font:500 12px 'Plus Jakarta Sans',sans-serif; letter-spacing:0.14em; color:{{ date }}; margin-bottom:10px;">WED · MAY 27</div>
+      <div style="font:400 24px/1.3 'Fraunces',serif; color:{{ text }}; margin-bottom:6px; text-wrap:pretty;">How&rsquo;s your mind feeling right now?</div>
+
+      <div style="text-align:center; margin-top:14px;">
+        <div style="height:212px; display:flex; align-items:center; justify-content:center;">{{ bigFace }}</div>
+        <div style="font:500 26px 'Fraunces',serif; color:{{ moodColor }}; margin-top:6px; transition:color .3s ease;">{{ moodLabel }}</div>
+        <div style="font:400 13.5px/1.5 'Plus Jakarta Sans',sans-serif; color:{{ sub }}; margin:9px auto 0; max-width:292px; text-wrap:pretty; min-height:40px;">{{ moodDesc }}</div>
+      </div>
+
+      <div style="margin-top:24px;">
+        <input class="mood-range" type="range" min="0" max="100" value="{{ value }}" onInput="{{ onSlider }}" style="background:{{ sliderTrack }};" />
+        <div style="display:flex; justify-content:space-between; margin-top:11px; font:400 12px 'Plus Jakarta Sans',sans-serif; color:{{ faint }};"><span>Thriving</span><span>Overwhelmed</span></div>
+      </div>
+
+      <div style="margin-top:30px;">
+        <div style="font:400 14px 'Fraunces',serif; color:{{ text }}; margin-bottom:13px;">What&rsquo;s behind it? <span style="color:{{ faint }};">(tap any)</span></div>
+        <div style="display:flex; flex-wrap:wrap; gap:9px;">
+          <sc-for list="{{ chips }}" as="c" hint-placeholder-count="5"><div onClick="{{ c.onClick }}" style="{{ c.style }}" style-active="transform:scale(0.96)"><span style="{{ c.dotStyle }}"></span>{{ c.label }}</div></sc-for>
+        </div>
+      </div>
+
+      <div onClick="{{ save }}" style="margin-top:30px; height:54px; flex:none; border-radius:999px; display:flex; align-items:center; justify-content:center; cursor:pointer; background:{{ saveBg }}; color:{{ saveText }}; font:500 15.5px 'Plus Jakarta Sans',sans-serif; box-shadow:{{ saveGlow }}; transition:transform .14s cubic-bezier(0.22,0.61,0.36,1);" style-active="transform:scale(0.97)">Save today&rsquo;s mood</div>
+    </div>
+  </sc-if>
+
+  <!-- POPUP / BOTTOM SHEET -->
+  <sc-if value="{{ isPopup }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute; inset:0; padding:54px 22px; filter:blur(1.4px); opacity:0.62;">
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:18px;">
+        <i class="ph ph-airplane-tilt" style="font-size:21px; color:{{ faint }};"></i>
+        <div style="text-align:center;"><div style="font:400 12px 'Fraunces',serif; color:{{ sub }};">Good evening,</div><div style="font:500 19px 'Fraunces',serif; color:{{ text }};">Durgesh</div></div>
+        <div style="display:flex; align-items:center; gap:5px;"><i class="ph-fill ph-plant" style="font-size:16px; color:#9DB890;"></i><span style="font:500 15px 'Fraunces',serif; color:{{ date }};">12</span></div>
+      </div>
+      <div style="height:96px; border-radius:18px; background:{{ ghostCard }}; border:1px solid {{ sheetBorder }}; margin-bottom:14px;"></div>
+      <div style="height:150px; border-radius:22px; background:{{ ghostCard }}; border:1px solid {{ sheetBorder }};"></div>
+    </div>
+
+    <div onClick="{{ closeSheet }}" style="position:absolute; inset:0; background:{{ scrim }}; -webkit-backdrop-filter:blur(7px); backdrop-filter:blur(7px); opacity:{{ scrimOpacity }}; transition:opacity .45s ease;"></div>
+
+    <sc-if value="{{ sheetClosed }}" hint-placeholder-val="{{ false }}">
+      <div onClick="{{ openSheet }}" style="position:absolute; left:50%; bottom:44px; transform:translateX(-50%); display:flex; align-items:center; gap:9px; padding:14px 22px; border-radius:999px; cursor:pointer; background:{{ saveBg }}; color:{{ saveText }}; font:500 14.5px 'Plus Jakarta Sans',sans-serif; box-shadow:{{ saveGlow }};"><i class="ph ph-smiley" style="font-size:19px;"></i>Quick mood check-in</div>
+    </sc-if>
+
+    <div style="position:absolute; left:0; right:0; bottom:0; border-radius:30px 30px 0 0; padding:13px 24px 30px; background:{{ sheetBg }}; -webkit-backdrop-filter:blur(28px); backdrop-filter:blur(28px); border-top:1px solid {{ sheetBorder }}; box-shadow:0 -16px 50px rgba(12,8,22,0.4); transform:{{ sheetTransform }}; transition:transform .5s cubic-bezier(0.22,0.61,0.36,1);">
+      <div style="width:42px; height:5px; border-radius:999px; background:{{ handle }}; margin:0 auto 14px;"></div>
+      <div style="font:400 21px/1.3 'Fraunces',serif; color:{{ text }}; text-align:center; margin-bottom:2px; text-wrap:pretty;">How&rsquo;s your mind right now?</div>
+
+      <div style="text-align:center; margin-top:6px;">
+        <div style="height:176px; display:flex; align-items:center; justify-content:center;">{{ bigFacePopup }}</div>
+        <div style="font:500 22px 'Fraunces',serif; color:{{ moodColor }}; margin-top:2px; transition:color .3s ease;">{{ moodLabel }}</div>
+      </div>
+
+      <div style="margin-top:18px;">
+        <input class="mood-range" type="range" min="0" max="100" value="{{ value }}" onInput="{{ onSlider }}" style="background:{{ sliderTrack }};" />
+        <div style="display:flex; justify-content:space-between; margin-top:10px; font:400 11.5px 'Plus Jakarta Sans',sans-serif; color:{{ faint }};"><span>Thriving</span><span>Overwhelmed</span></div>
+      </div>
+
+      <div onClick="{{ save }}" style="margin-top:20px; height:52px; border-radius:999px; display:flex; align-items:center; justify-content:center; cursor:pointer; background:{{ saveBg }}; color:{{ saveText }}; font:500 15px 'Plus Jakarta Sans',sans-serif; box-shadow:{{ saveGlow }}; transition:transform .14s cubic-bezier(0.22,0.61,0.36,1);" style-active="transform:scale(0.97)">Save</div>
+    </div>
+  </sc-if>
+
+  <!-- SAVE CELEBRATION -->
+  <sc-if value="{{ saved }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute; inset:0; pointer-events:none; z-index:40;">
+      <sc-for list="{{ particles }}" as="p" hint-placeholder-count="0"><div style="{{ p.style }}">{{ p.char }}</div></sc-for>
+      <div style="position:absolute; left:50%; bottom:104px; transform:translateX(-50%); display:flex; align-items:center; gap:7px; padding:11px 20px; border-radius:999px; background:{{ savedPillBg }}; color:{{ savedPillText }}; font:500 14px 'Plus Jakarta Sans',sans-serif; box-shadow:0 10px 30px rgba(36,26,62,0.34); animation:mc_savePop .5s cubic-bezier(0.34,1.56,0.64,1);">Saved 🌱</div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844},&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;dark&quot;,&quot;light&quot;],&quot;default&quot;:&quot;dark&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;variant&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;full&quot;,&quot;popup&quot;],&quot;default&quot;:&quot;full&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this._uid = Math.random().toString(36).slice(2, 8);
+    this.state = { value: 14, selChips: {}, saved: false, particles: [], sheetOpen: true };
+  }
+
+  THEME() {
+    const dark = this.props.theme !== 'light';
+    if (dark) return {
+      dark: true,
+      bg: 'radial-gradient(82% 55% at 24% 12%,rgba(155,107,208,0.30),rgba(155,107,208,0) 60%),radial-gradient(70% 48% at 84% 22%,rgba(232,160,76,0.15),rgba(232,160,76,0) 62%),linear-gradient(160deg,#1A1726,#2E2440)',
+      aura: 'radial-gradient(circle at 50% 46%,rgba(168,143,208,0.42) 0%,rgba(140,120,205,0.26) 32%,rgba(157,184,144,0.16) 58%,rgba(157,184,144,0) 78%)', grainBlend: 'overlay',
+      text: '#E8E5F0', sub: '#A8A4B5', faint: 'rgba(232,229,240,0.5)', icon: 'rgba(232,229,240,0.72)',
+      date: '#E8A04C',
+      sheetBg: 'rgba(34,30,46,0.74)', sheetBorder: 'rgba(255,255,255,0.14)', handle: 'rgba(255,255,255,0.28)', ghostCard: 'rgba(255,255,255,0.05)',
+      scrim: 'rgba(12,8,22,0.5)',
+      chipBg: 'rgba(255,255,255,0.05)', chipBorder: 'rgba(255,255,255,0.13)', chipText: '#C7C3D2',
+      chipSelBg: 'rgba(132,57,201,0.26)', chipSelBorder: 'rgba(168,143,208,0.55)', chipSelText: '#E6D8F8', dot: '#B8A0E0',
+      saveBg: 'linear-gradient(135deg,#9B52D8,#7331B8)', saveText: '#F5EEFC', saveGlow: '0 12px 32px rgba(132,57,201,0.5), inset 0 1px 0 rgba(255,255,255,0.20)',
+      savedPillBg: 'rgba(34,30,46,0.94)', savedPillText: '#E8E5F0',
+    };
+    return {
+      dark: false,
+      bg: 'radial-gradient(120% 80% at 86% 6%,#F7E6CC,rgba(247,230,204,0) 55%),radial-gradient(110% 80% at 6% 14%,#F3E8FB,rgba(243,232,251,0) 52%),linear-gradient(160deg,#FAF6EE,#F4E4CC)',
+      aura: 'radial-gradient(circle at 50% 46%,rgba(168,143,208,0.30) 0%,rgba(140,120,205,0.18) 34%,rgba(157,184,144,0.12) 60%,rgba(157,184,144,0) 80%)', grainBlend: 'multiply',
+      text: '#3D3A44', sub: '#6B6770', faint: '#9A95A0', icon: '#9A95A0',
+      date: '#C49A4C',
+      sheetBg: 'rgba(255,255,255,0.82)', sheetBorder: 'rgba(225,214,200,0.9)', handle: 'rgba(61,58,68,0.18)', ghostCard: 'rgba(255,255,255,0.6)',
+      scrim: 'rgba(60,45,40,0.30)',
+      chipBg: '#FFFFFF', chipBorder: '#E7DDCD', chipText: '#6B6770',
+      chipSelBg: 'rgba(132,57,201,0.10)', chipSelBorder: 'rgba(132,57,201,0.34)', chipSelText: '#6B2BA8', dot: '#8439C9',
+      saveBg: 'linear-gradient(180deg,#3A2D5C,#241A3E)', saveText: '#F2EEFA', saveGlow: '0 12px 28px rgba(36,26,62,0.32), inset 0 1px 0 rgba(255,255,255,0.14)',
+      savedPillBg: '#FFFFFF', savedPillText: '#3D3A44',
+    };
+  }
+
+  MOOD(v) {
+    const dark = this.props.theme !== 'light';
+    const defs = [
+      { i: 0, label: 'Calm',        cD: '#9DB890', cL: '#6E8C58', desc: 'Steady and centered. A good day to deepen your practice.' },
+      { i: 1, label: 'Steady',      cD: '#B98AE6', cL: '#8439C9', desc: 'Holding your ground. A small reset keeps you right here.' },
+      { i: 2, label: 'Tense',       cD: '#E8A04C', cL: '#BF7E3A', desc: 'A little stretched. Two slow minutes can loosen it.' },
+      { i: 3, label: 'Overwhelmed', cD: '#E0856B', cL: '#C25C42', desc: 'Carrying a lot right now. Let\u2019s take it gently, together.' },
+    ];
+    const idx = v < 25 ? 0 : v < 50 ? 1 : v < 75 ? 2 : 3;
+    const d = defs[idx];
+    return Object.assign({}, d, { color: dark ? d.cD : d.cL });
+  }
+
+  // ----- color helpers -----
+  _hx(c){ return [parseInt(c.slice(1,3),16),parseInt(c.slice(3,5),16),parseInt(c.slice(5,7),16)]; }
+  _toHex(a){ return '#'+a.map(n=>Math.max(0,Math.min(255,Math.round(n))).toString(16).padStart(2,'0')).join(''); }
+  _mix(c1,c2,t){ const a=this._hx(c1),b=this._hx(c2); return this._toHex([a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t,a[2]+(b[2]-a[2])*t]); }
+  _ramp(t,stops){ for(let i=0;i<stops.length-1;i++){ const p0=stops[i][0],p1=stops[i+1][0]; if(t<=p1){ const lt=(t-p0)/((p1-p0)||1); return this._mix(stops[i][1],stops[i+1][1],Math.max(0,Math.min(1,lt))); } } return stops[stops.length-1][1]; }
+  _dark(c,f){ const a=this._hx(c); return this._toHex([a[0]*(1-f),a[1]*(1-f),a[2]*(1-f)]); }
+  _light(c,f){ const a=this._hx(c); return this._toHex([a[0]+(255-a[0])*f,a[1]+(255-a[1])*f,a[2]+(255-a[2])*f]); }
+  _rgba(c,al){ const a=this._hx(c); return 'rgba('+a[0]+','+a[1]+','+a[2]+','+al+')'; }
+
+  buildFace(size, moodIdx) {
+    const e = React.createElement;
+    const dark = this.props.theme !== 'light';
+    const cl = (x,a,b)=>Math.max(a,Math.min(b,x));
+    const lerp = (a,b,t)=>a+(b-a)*t;
+    const t = this.state.value / 100;
+
+    const stops = dark
+      ? [[0,'#9DB890'],[0.34,'#9457D6'],[0.67,'#E8A04C'],[1,'#DA7458']]
+      : [[0,'#88AA73'],[0.34,'#8439C9'],[0.67,'#D38A33'],[1,'#BD5A3E']];
+    const orb   = this._ramp(t, stops);
+    const orbHi = this._light(orb, 0.5);
+    const orbDk = this._dark(orb, 0.22);
+    const feat  = this._dark(orb, 0.5);
+    const glow  = this._rgba(orb, 0.5);
+    const gid = 'og' + this._uid;
+
+    // geometry
+    const eyeRx = lerp(8.5, 10.5, t);
+    const eyeRy = eyeRx * lerp(0.6, 1, cl(t * 1.5, 0, 1));
+    const browOp = cl((t - 0.38) / 0.4, 0, 1);
+    const tilt = lerp(0, 9, t);
+    const by = 70;
+    const mCtrl = lerp(172, 106, t);          // smile -> flat (~t .52) -> frown
+    const blushOp = cl(0.5 - t * 0.75, 0, 0.5);
+    const blushCol = dark ? '#F6A6B6' : '#EE8FA6';
+
+    const els = [];
+    els.push(e('defs', { key: 'def' },
+      e('radialGradient', { id: gid, cx: '38%', cy: '30%', r: '78%' },
+        e('stop', { key: 0, offset: '0%', stopColor: orbHi }),
+        e('stop', { key: 1, offset: '58%', stopColor: orb }),
+        e('stop', { key: 2, offset: '100%', stopColor: orbDk }))));
+    els.push(e('circle', { key: 'orb', cx: 100, cy: 100, r: 78, fill: 'url(#' + gid + ')' }));
+    els.push(e('ellipse', { key: 'gloss', cx: 74, cy: 62, rx: 27, ry: 18, fill: 'rgba(255,255,255,0.30)' }));
+    els.push(e('ellipse', { key: 'bl', cx: 60, cy: 118, rx: 13, ry: 8, fill: blushCol, opacity: blushOp }));
+    els.push(e('ellipse', { key: 'br', cx: 140, cy: 118, rx: 13, ry: 8, fill: blushCol, opacity: blushOp }));
+    els.push(e('ellipse', { key: 'el', cx: 72, cy: 92, rx: eyeRx, ry: eyeRy, fill: feat }));
+    els.push(e('ellipse', { key: 'er', cx: 128, cy: 92, rx: eyeRx, ry: eyeRy, fill: feat }));
+    els.push(e('path', { key: 'bwl', d: 'M56 ' + (by + tilt) + ' Q70 ' + (by - 2) + ' 86 ' + (by - tilt), stroke: feat, strokeWidth: 5, strokeLinecap: 'round', fill: 'none', opacity: browOp }));
+    els.push(e('path', { key: 'bwr', d: 'M144 ' + (by + tilt) + ' Q130 ' + (by - 2) + ' 114 ' + (by - tilt), stroke: feat, strokeWidth: 5, strokeLinecap: 'round', fill: 'none', opacity: browOp }));
+    els.push(e('path', { key: 'mo', d: 'M66 138 Q100 ' + mCtrl + ' 134 138', stroke: feat, strokeWidth: 7, strokeLinecap: 'round', fill: 'none' }));
+
+    const svg = e('svg', { key: 'svg', viewBox: '0 0 200 200', width: size, height: size, style: { overflow: 'visible' } }, els);
+    return e('div', {
+      key: 'face' + moodIdx,
+      style: { width: size, height: size, display: 'flex', alignItems: 'center', justifyContent: 'center', filter: 'drop-shadow(0 12px 30px ' + glow + ')', animation: 'mc_bounce .44s cubic-bezier(0.34,1.56,0.64,1)' },
+    }, svg);
+  }
+
+  onSlider = (e) => {
+    const v = Number(e.target.value);
+    const prevZone = this.MOOD(this.state.value).i;
+    const z = this.MOOD(v).i;
+    if (z !== prevZone && typeof navigator !== 'undefined' && navigator.vibrate) navigator.vibrate(7);
+    this.setState({ value: v });
+  };
+
+  save = () => {
+    const parts = Array.from({ length: 10 }).map(() => ({
+      char: Math.random() < 0.5 ? '🌱' : '✦',
+      x: (12 + Math.random() * 76).toFixed(0),
+      s: (15 + Math.random() * 13).toFixed(0),
+      d: (Math.random() * 0.32).toFixed(2),
+      dur: (1.3 + Math.random() * 0.55).toFixed(2),
+    }));
+    if (typeof navigator !== 'undefined' && navigator.vibrate) navigator.vibrate([10, 28, 12]);
+    this.setState({ saved: true, particles: parts });
+    clearTimeout(this._tSave);
+    this._tSave = setTimeout(() => this.setState({ saved: false }), 2000);
+    if (this.props.variant === 'popup') {
+      clearTimeout(this._tSheet);
+      this._tSheet = setTimeout(() => this.setState({ sheetOpen: false }), 1050);
+    }
+  };
+
+  openSheet = () => this.setState({ sheetOpen: true });
+  closeSheet = () => this.setState({ sheetOpen: false });
+
+  componentWillUnmount() { clearTimeout(this._tSave); clearTimeout(this._tSheet); }
+
+  renderVals() {
+    const T = this.THEME();
+    const m = this.MOOD(this.state.value);
+    const isPopup = this.props.variant === 'popup';
+
+    const chipBase = 'display:inline-flex; align-items:center; gap:0; padding:10px 16px; border-radius:999px; font:400 13.5px \'Plus Jakarta Sans\',sans-serif; cursor:pointer; transition:background .18s ease, border-color .18s ease, color .18s ease, transform .14s cubic-bezier(0.22,0.61,0.36,1); ';
+    const names = ['Meditation', 'Family time', 'On track', 'Quiet morning', 'Walked outside'];
+    const chips = names.map((n) => {
+      const sel = !!this.state.selChips[n];
+      const style = chipBase + (sel
+        ? 'background:' + T.chipSelBg + '; border:1px solid ' + T.chipSelBorder + '; color:' + T.chipSelText + ';'
+        : 'background:' + T.chipBg + '; border:1px solid ' + T.chipBorder + '; color:' + T.chipText + ';');
+      const dotStyle = 'width:' + (sel ? '7px' : '0px') + '; height:7px; border-radius:50%; background:' + T.dot + '; margin-right:' + (sel ? '8px' : '0px') + '; flex:none; transition:width .18s ease, margin-right .18s ease;';
+      return { label: n, onClick: () => {
+        if (typeof navigator !== 'undefined' && navigator.vibrate) navigator.vibrate(4);
+        const c = Object.assign({}, this.state.selChips);
+        if (c[n]) delete c[n]; else c[n] = true;
+        this.setState({ selChips: c });
+      }, style, dotStyle };
+    });
+
+    const particles = this.state.particles.map((p) => ({
+      char: p.char,
+      style: 'position:absolute; bottom:62px; left:' + p.x + '%; font-size:' + p.s + 'px; animation:mc_floatUp ' + p.dur + 's cubic-bezier(0.22,0.61,0.36,1) ' + p.d + 's both;',
+    }));
+
+    return {
+      bg: T.bg, aura: T.aura, grainBlend: T.grainBlend,
+      ringsTop: isPopup ? '58%' : '300px',
+      text: T.text, sub: T.sub, faint: T.faint, icon: T.icon, date: T.date,
+      sheetBg: T.sheetBg, sheetBorder: T.sheetBorder, handle: T.handle, ghostCard: T.ghostCard, scrim: T.scrim,
+      saveBg: T.saveBg, saveText: T.saveText, saveGlow: T.saveGlow,
+      savedPillBg: T.savedPillBg, savedPillText: T.savedPillText,
+
+      isFull: !isPopup, isPopup,
+
+      value: this.state.value,
+      moodColor: m.color, moodLabel: m.label, moodDesc: m.desc,
+      bigFace: this.buildFace(198, m.i),
+      bigFacePopup: this.buildFace(168, m.i),
+      chips,
+      sliderTrack: 'linear-gradient(90deg,#9DB890 0%,#8439C9 50%,#E8A04C 100%)',
+
+      onSlider: this.onSlider, save: this.save,
+      saved: this.state.saved, particles,
+
+      sheetTransform: this.state.sheetOpen ? 'translateY(0)' : 'translateY(108%)',
+      scrimOpacity: this.state.sheetOpen ? '1' : '0',
+      sheetClosed: !this.state.sheetOpen,
+      openSheet: this.openSheet, closeSheet: this.closeSheet,
+    };
+  }
+}
+</script>
+</body>
+</html>

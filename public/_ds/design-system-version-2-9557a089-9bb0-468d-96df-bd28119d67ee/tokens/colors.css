@@ -1,0 +1,137 @@
+/* BackWithBrain — Color tokens
+   Every brand & section color carries a 5–6 step ramp (50 → 800).
+   Lightest = tints/backgrounds · mid = fills/icons · darkest = text-on-color. */
+
+:root {
+  /* ── Brand anchors ───────────────────────────────────────────── */
+  /* Jamun purple — core brand */
+  --jamun-50:  #F1E8FB;
+  --jamun-100: #D9BEF0;
+  --jamun-200: #B98AE2;
+  --jamun-400: #8439C9; /* base */
+  --jamun-600: #6B2BA8;
+  --jamun-800: #4A1D75;
+
+  /* Haldi gold — programs */
+  --haldi-50:  #FBF1E0;
+  --haldi-100: #F5DCB5;
+  --haldi-200: #EFC183;
+  --haldi-400: #E8A04C; /* base */
+  --haldi-600: #C47E2E;
+  --haldi-800: #8E591C;
+
+  /* Deep gold — rewards */
+  --deepgold-50:  #F7F0DF;
+  --deepgold-100: #EAD7A8;
+  --deepgold-200: #D9BC78;
+  --deepgold-400: #C49A4C; /* base */
+  --deepgold-600: #A07A30;
+  --deepgold-800: #6E531E;
+
+  /* ── Section colors ──────────────────────────────────────────── */
+  /* Daily Detox · Jamun purple (aliases anchor) */
+  --detox-50: var(--jamun-50);
+  --detox-100: var(--jamun-100);
+  --detox-200: var(--jamun-200);
+  --detox-400: var(--jamun-400);
+  --detox-600: var(--jamun-600);
+  --detox-800: var(--jamun-800);
+
+  /* FCTC / EAP · Haldi gold (aliases anchor) */
+  --eap-50: var(--haldi-50);
+  --eap-100: var(--haldi-100);
+  --eap-200: var(--haldi-200);
+  --eap-400: var(--haldi-400);
+  --eap-600: var(--haldi-600);
+  --eap-800: var(--haldi-800);
+
+  /* Sleep · Twilight blue */
+  --sleep-50:  #ECF1F8;
+  --sleep-100: #C8D6EA;
+  --sleep-200: #9DB4D6;
+  --sleep-400: #5B7FB8; /* base */
+  --sleep-600: #456396;
+  --sleep-800: #2E4368;
+
+  /* Move / Gratitude · Tulsi sage */
+  --move-50:  #EEF3EB;
+  --move-100: #D2E0C9;
+  --move-200: #B5CCA8;
+  --move-400: #9DB890; /* base */
+  --move-600: #76916A;
+  --move-800: #4F6346;
+
+  /* Calm / Resets · Terracotta */
+  --reset-50:  #FAEEEA;
+  --reset-100: #F0CFC3;
+  --reset-200: #E6AC98;
+  --reset-400: #E0856B; /* base */
+  --reset-600: #BC6248;
+  --reset-800: #88452F;
+
+  /* Streak / Reward · Deep gold (aliases anchor) */
+  --streak-50: var(--deepgold-50);
+  --streak-100: var(--deepgold-100);
+  --streak-200: var(--deepgold-200);
+  --streak-400: var(--deepgold-400);
+  --streak-600: var(--deepgold-600);
+  --streak-800: var(--deepgold-800);
+
+  /* ── Light theme neutrals / surfaces ─────────────────────────── */
+  --l-bg:        #FAF6EE;
+  --l-surface:   #FFFFFF;
+  --l-surface-2: #F7F2E8;
+  --l-inset:     #EFE7DA;
+  --l-border:    #E0D6C8;
+  --l-text-1:    #3D3A44;
+  --l-text-2:    #6B6770;
+  --l-text-3:    #9A95A0;
+
+  /* ── Dark theme neutrals / surfaces ──────────────────────────── */
+  --d-bg:        #16141E;
+  --d-surface:   #211E2C;
+  --d-surface-2: #2C2838;
+  --d-inset:     #2C2838;
+  --d-border:    #332F40;
+  --d-text-1:    #E8E5F0;
+  --d-text-2:    #A8A4B5;
+  --d-text-3:    #6E6A7C;
+
+  /* ── Semantic (light · dark) ─────────────────────────────────── */
+  --success:      #7FA86B;
+  --success-dark: #A8BBA0;
+  --warning:      #E0856B;
+  --warning-dark: #E89A82;
+  --error:        #C85A5A;
+  --error-dark:   #D87A7A;
+  --info:         #5B7FB8;
+  --info-dark:    #8DA3C4;
+
+  /* ── Semantic aliases (default = light theme) ────────────────── */
+  --color-brand:        var(--jamun-400);
+  --color-brand-strong: var(--jamun-600);
+  --bg-base:        var(--l-bg);
+  --surface-card:   var(--l-surface);
+  --surface-sunken: var(--l-surface-2);
+  --surface-inset:  var(--l-inset);
+  --border-soft:    var(--l-border);
+  --text-1:         var(--l-text-1);
+  --text-2:         var(--l-text-2);
+  --text-3:         var(--l-text-3);
+}
+
+/* Opt-in dark theme: aliases flip to the dark ramp */
+[data-theme="dark"] {
+  --bg-base:        var(--d-bg);
+  --surface-card:   var(--d-surface);
+  --surface-sunken: var(--d-surface-2);
+  --surface-inset:  var(--d-inset);
+  --border-soft:    var(--d-border);
+  --text-1:         var(--d-text-1);
+  --text-2:         var(--d-text-2);
+  --text-3:         var(--d-text-3);
+  --success: var(--success-dark);
+  --warning: var(--warning-dark);
+  --error:   var(--error-dark);
+  --info:    var(--info-dark);
+}

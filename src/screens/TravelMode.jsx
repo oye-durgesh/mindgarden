@@ -74,6 +74,16 @@ export default function TravelMode() {
         </div>
       )}
 
+      <div className="mt-5">
+        <TravelActivityCard
+          title="Travel Mode"
+          duration="Open"
+          description="Open the full travel-mode experience."
+          icon="✈️"
+          onClick={() => navigate('/travel-mode-view')}
+        />
+      </div>
+
       <h2 className="mt-8 font-serif text-2xl">Rest now</h2>
       <div className="mt-3 space-y-3">
         {ACTIVITIES.map((item) => (
