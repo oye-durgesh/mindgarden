@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ChevronLeft } from 'lucide-react'
-import { PHONE_SAFE_TOP, useIsDesktop } from './PhoneMockup.jsx'
+import { useIsDesktop } from './PhoneMockup.jsx'
 
 export default function EmbeddedHtmlScreen({
   src,
@@ -10,17 +10,10 @@ export default function EmbeddedHtmlScreen({
   onIframeLoad,
   onMessage,
   showBack = true,
-  fullBleed = false,
 }) {
   const navigate = useNavigate()
   const isDesktop = useIsDesktop()
   const iframeRef = useRef(null)
-
-  const bleedStyle = fullBleed
-    ? isDesktop
-      ? { marginTop: -PHONE_SAFE_TOP, height: `calc(100% + ${PHONE_SAFE_TOP}px)` }
-      : { marginTop: 'calc(-1 * max(1.25rem, env(safe-area-inset-top)))', height: '100dvh' }
-    : undefined
 
   useEffect(() => {
     if (!onMessage) return undefined
@@ -33,10 +26,7 @@ export default function EmbeddedHtmlScreen({
   }, [onMessage])
 
   return (
-    <div
-      className={`overflow-hidden bg-[#140e22] ${isDesktop ? 'flex h-full min-h-full w-full grow shrink-0 flex-col' : 'relative h-dvh w-full'}`}
-      style={bleedStyle}
-    >
+    <div className={`overflow-hidden bg-[#140e22] ${isDesktop ? 'flex h-full min-h-full w-full grow shrink-0 flex-col' : 'relative h-dvh w-full'}`}>
       {showBack && (
         <button
           type="button"

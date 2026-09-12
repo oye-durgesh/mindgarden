@@ -16,20 +16,24 @@ import Buddy from './screens/Buddy.jsx'
 import Me from './screens/Me.jsx'
 
 const TAB_PATHS = ['/', '/learn', '/games', '/buddy', '/me']
+const FULL_BLEED_PATHS = ['/mood']
 
 function AppRoutes() {
   const location = useLocation()
   const isDesktop = useIsDesktop()
   const showNav = TAB_PATHS.includes(location.pathname)
+  const fullBleed = FULL_BLEED_PATHS.includes(location.pathname)
 
   return (
     <div className={`relative isolate ${isDesktop ? 'flex h-full w-full flex-col overflow-hidden' : 'min-h-dvh'}`}>
       <div
         className={isDesktop ? 'absolute inset-0 flex flex-col overflow-x-hidden overflow-y-auto' : ''}
         style={
-          isDesktop
-            ? { paddingTop: PHONE_SAFE_TOP }
-            : { paddingTop: 'max(1.25rem, env(safe-area-inset-top))' }
+          fullBleed
+            ? { paddingTop: 0 }
+            : isDesktop
+              ? { paddingTop: PHONE_SAFE_TOP }
+              : { paddingTop: 'max(1.25rem, env(safe-area-inset-top))' }
         }
       >
         <AnimatePresence>
