@@ -12,23 +12,6 @@
     overflow: hidden;
     background: #140e22;
   }
-  .stage {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-  }
-  .stage dc-import,
-  .stage > * {
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
-  .stage [style*="width:390px"] {
-    width: 100% !important;
-    height: 100% !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-  }
 </style>
 </head>
 <body>
@@ -36,9 +19,14 @@
 <helmet>
 <meta name="design_doc_mode" content="canvas" />
 </helmet>
-<div class="stage">
-  <dc-import name="MoodCheckin" theme="dark" variant="full" hint-size="390px,844px"></dc-import>
-</div>
+<dc-import name="MoodCheckin" theme="dark" variant="full" hint-size="390px,844px"></dc-import>
 </x-dc>
+<script>
+  window.addEventListener('click', function (event) {
+    if (event.target.closest && event.target.closest('.ph-caret-left')) {
+      window.parent.postMessage({ type: 'MINDGARDEN_MOOD_BACK' }, '*')
+    }
+  })
+</script>
 </body>
 </html>
