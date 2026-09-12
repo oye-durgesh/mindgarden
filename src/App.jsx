@@ -6,7 +6,6 @@ import PhoneMockup, { PHONE_SAFE_TOP, useIsDesktop } from './components/layout/P
 import Practice from './screens/Practice.jsx'
 import GamesHub from './screens/GamesHub.jsx'
 import GamePlay from './screens/GamePlay.jsx'
-import MoodCheckIn from './screens/MoodCheckIn.jsx'
 import MoodCheckInIframe from './screens/MoodCheckInIframe.jsx'
 import TravelMode from './screens/TravelMode.jsx'
 import TravelModeIframe from './screens/TravelModeIframe.jsx'
@@ -49,8 +48,8 @@ function AppRoutes() {
               <Route path="/games/:id" element={<GamePlay />} />
               <Route path="/buddy" element={<Buddy />} />
               <Route path="/me" element={<Me />} />
-              <Route path="/mood" element={<MoodCheckIn />} />
-              <Route path="/mood-check-in" element={<MoodCheckInIframe />} />
+              <Route path="/mood" element={<MoodCheckInIframe />} />
+              <Route path="/mood-check-in" element={<Navigate to="/mood" replace />} />
               <Route path="/travel" element={<TravelMode />} />
               <Route path="/travel-mode-view" element={<TravelModeIframe />} />
               <Route path="/plant" element={<PlantStreak />} />

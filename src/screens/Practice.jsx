@@ -49,7 +49,7 @@ export default function Practice() {
           duration="2 min"
           icon="sun"
           timeOfDay={timeOfDay}
-          onClick={() => navigate('/mood-check-in')}
+          onClick={() => navigate('/mood')}
         />
       </div>
 
