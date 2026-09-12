@@ -1,10 +1,28 @@
+import { useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ChevronLeft } from 'lucide-react'
 import { useIsDesktop } from './PhoneMockup.jsx'
 
-export default function EmbeddedHtmlScreen({ src, title, backTo = '/' }) {
+export default function EmbeddedHtmlScreen({
+  src,
+  title,
+  backTo = '/',
+  onIframeLoad,
+  onMessage,
+}) {
   const navigate = useNavigate()
   const isDesktop = useIsDesktop()
+  const iframeRef = useRef(null)
+
+  useEffect(() => {
+    if (!onMessage) return undefined
+    const handle = (event) => {
+      if (event.source !== iframeRef.current?.contentWindow) return
+      onMessage(event)
+    }
+    window.addEventListener('message', handle)
+    return () => window.removeEventListener('message', handle)
+  }, [onMessage])
 
   return (
     <div className={`overflow-hidden bg-black ${isDesktop ? 'flex min-h-full grow shrink-0 flex-col' : 'relative h-dvh w-full'}`}>
@@ -16,7 +34,13 @@ export default function EmbeddedHtmlScreen({ src, title, backTo = '/' }) {
       >
         <ChevronLeft size={20} />
       </button>
-      <iframe src={src} title={title} className="min-h-full w-full flex-1 border-0" />
+      <iframe
+        ref={iframeRef}
+        src={src}
+        title={title}
+        className="min-h-full w-full flex-1 border-0"
+        onLoad={() => onIframeLoad?.(iframeRef.current)}
+      />
     </div>
   )
 }

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/design-system-version-2-9557a089-9bb0-468d-96df-bd28119d67ee/tokens/fonts.css" />
+<link rel="stylesheet" href="_ds/design-system-version-2-9557a089-9bb0-468d-96df-bd28119d67ee/tokens/colors.css" />
+<link rel="stylesheet" href="_ds/design-system-version-2-9557a089-9bb0-468d-96df-bd28119d67ee/styles.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,400;9..144,0,500;9..144,1,400&family=Plus+Jakarta+Sans:wght@400;500&display=swap" />
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+<script src="_ds/design-system-version-2-9557a089-9bb0-468d-96df-bd28119d67ee/_ds_bundle.js"></script>
+<style>
+  * { box-sizing:border-box; }
+  @keyframes wg_blobA { 0%,100%{ transform:translate(0,0) scale(1) } 50%{ transform:translate(26px,-20px) scale(1.12) } }
+  @keyframes wg_blobB { 0%,100%{ transform:translate(0,0) scale(1.05) } 50%{ transform:translate(-22px,20px) scale(0.92) } }
+  @keyframes wg_halo { 0%,100%{ transform:translate(-50%,-50%) scale(0.94); opacity:0.6 } 50%{ transform:translate(-50%,-50%) scale(1.08); opacity:0.95 } }
+  @keyframes wg_sway { 0%,100%{ transform:rotate(-1.4deg) } 50%{ transform:rotate(1.4deg) } }
+  @keyframes wg_perk { 0%{ transform:scaleY(1) scaleX(1) } 30%{ transform:scaleY(1.07) scaleX(0.98) } 60%{ transform:scaleY(0.99) scaleX(1.01) } 100%{ transform:scaleY(1) scaleX(1) } }
+  @keyframes wg_drop { 0%{ opacity:0; transform:translateY(-8px) scaleY(0.7) } 18%{ opacity:1 } 78%{ opacity:1; transform:translateY(118px) scaleY(1.2) } 100%{ opacity:0; transform:translateY(132px) scaleY(0.4) } }
+  @keyframes wg_particle { 0%{ opacity:0; transform:translateY(0) scale(0.4) } 24%{ opacity:1 } 100%{ opacity:0; transform:translateY(-150px) scale(1.1) } }
+  @keyframes wg_capIn { 0%{ opacity:0; transform:translateY(8px) } 100%{ opacity:1; transform:translateY(0) } }
+  @keyframes wg_shimmer { 0%,100%{ opacity:0 } 40%{ opacity:0.7 } }
+</style>
+</helmet>
+
+<div data-screen-label="Plant growth" style="width:390px; height:844px; border-radius:30px; overflow:hidden; position:relative; background:{{ bg }}; font-family:'Plus Jakarta Sans',sans-serif;">
+
+  <div style="position:absolute; left:-60px; top:60px; width:260px; height:260px; border-radius:50%; pointer-events:none; filter:blur(58px); background:{{ blobA }}; animation:wg_blobA 18s ease-in-out infinite;"></div>
+  <div style="position:absolute; right:-70px; top:200px; width:280px; height:280px; border-radius:50%; pointer-events:none; filter:blur(60px); background:{{ blobB }}; animation:wg_blobB 21s ease-in-out infinite;"></div>
+  <svg viewBox="0 0 200 320" style="position:absolute; left:50%; top:48%; transform:translate(-50%,-50%); width:340px; height:540px; opacity:{{ lotusOp }}; pointer-events:none;" fill="none" stroke="{{ lotusMotif }}" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M28,310 L28,150 C28,88 64,38 100,16 C136,38 172,88 172,150 L172,310" /><path d="M50,310 L50,158 C50,108 78,66 100,48 C122,66 150,108 150,158 L150,310" /><path d="M100,310 L100,40" /></svg>
+  <div style="position:absolute; inset:0; pointer-events:none; opacity:0.05; mix-blend-mode:{{ grainBlend }}; background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='wgg'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23wgg)'/%3E%3C/svg%3E&quot;);"></div>
+
+  <!-- header -->
+  <div style="position:absolute; top:60px; left:0; right:0; text-align:center; z-index:5;">
+    <div key="{{ dayKey }}" style="font:500 34px 'Fraunces',serif; color:{{ text }}; animation:wg_capIn .5s cubic-bezier(0.22,0.61,0.36,1) both;">{{ dayLabel }}</div>
+    <div style="display:inline-flex; align-items:center; gap:7px; margin-top:8px; padding:5px 14px; border-radius:999px; background:{{ streakBg }}; border:1px solid {{ streakBorder }};"><i class="ph-fill ph-flame" style="font-size:14px; color:#E8A04C;"></i><span style="font:500 13px 'Plus Jakarta Sans'; color:{{ streakText }}; white-space:nowrap;">{{ streakLabel }}</span></div>
+  </div>
+
+  <!-- day nav -->
+  <div onClick="{{ prev }}" style="position:absolute; left:14px; top:50%; transform:translateY(-50%); z-index:6; width:44px; height:44px; border-radius:50%; display:grid; place-items:center; cursor:pointer; background:{{ navBg }}; border:1px solid {{ navBorder }}; color:{{ navIcon }}; opacity:{{ prevOp }}; transition:opacity .2s;" style-active="transform:translateY(-50%) scale(0.92)"><i class="ph ph-caret-left" style="font-size:20px;"></i></div>
+  <div onClick="{{ next }}" style="position:absolute; right:14px; top:50%; transform:translateY(-50%); z-index:6; width:44px; height:44px; border-radius:50%; display:grid; place-items:center; cursor:pointer; background:{{ navBg }}; border:1px solid {{ navBorder }}; color:{{ navIcon }}; opacity:{{ nextOp }}; transition:opacity .2s;" style-active="transform:translateY(-50%) scale(0.92)"><i class="ph ph-caret-right" style="font-size:20px;"></i></div>
+
+  <!-- plant scene -->
+  <div style="position:absolute; left:50%; bottom:188px; transform:translateX(-50%); width:320px; height:440px; display:flex; align-items:flex-end; justify-content:center; z-index:4;">
+    <!-- glow halo -->
+    <div style="position:absolute; left:50%; top:54%; width:{{ haloSize }}; height:{{ haloSize }}; border-radius:50%; pointer-events:none; background:{{ halo }}; filter:blur(18px); animation:wg_halo {{ haloDur }} ease-in-out infinite;"></div>
+    <!-- gold particles (celebration) -->
+    <div style="position:absolute; inset:0; pointer-events:none;">
+      <sc-for list="{{ particles }}" as="p" hint-placeholder-count="0"><div style="{{ p.style }}">✦</div></sc-for>
+    </div>
+    <!-- droplets -->
+    <div style="position:absolute; left:0; right:0; top:30px; height:200px; pointer-events:none; z-index:9;">
+      <sc-for list="{{ droplets }}" as="d" hint-placeholder-count="0"><div style="{{ d.style }}"></div></sc-for>
+    </div>
+    <!-- the plant SVG -->
+    <svg viewBox="0 0 200 280" width="320" height="448" style="position:relative; overflow:visible;">
+      <!-- pot shadow -->
+      <ellipse cx="100" cy="262" rx="54" ry="8" fill="{{ potShadow }}"></ellipse>
+      <!-- plant group (sway > grow) -->
+      <g style="transform-box:fill-box; transform-origin:100px 210px; animation:wg_sway 7s ease-in-out infinite;">
+        <g style="{{ plantStyle }}">
+          <sc-for list="{{ plantPaths }}" as="p" hint-placeholder-count="3"><path d="{{ p.d }}" fill="{{ p.fill }}" stroke="{{ p.stroke }}" stroke-width="{{ p.sw }}" stroke-linecap="round" stroke-linejoin="round" opacity="{{ p.op }}"></path></sc-for>
+        </g>
+      </g>
+      <!-- pot (front) -->
+      <path d="M58,208 Q58,202 64,202 L136,202 Q142,202 142,208 L134,252 Q133,259 126,259 L74,259 Q67,259 66,252 Z" fill="{{ potBody }}"></path>
+      <path d="M54,200 Q54,194 60,194 L140,194 Q146,194 146,200 L146,206 Q146,212 140,212 L60,212 Q54,212 54,206 Z" fill="{{ potRim }}"></path>
+      <ellipse cx="100" cy="203" rx="42" ry="6.5" fill="{{ potSoil }}"></ellipse>
+      <path d="M62,204 L70,250 Q71,256 76,256 L86,256" fill="none" stroke="{{ potHi }}" stroke-width="3" stroke-linecap="round" opacity="0.5"></path>
+    </svg>
+  </div>
+
+  <!-- caption -->
+  <div key="{{ capKey }}" style="position:absolute; left:28px; right:28px; bottom:150px; text-align:center; z-index:5; font:400 17px/1.45 'Fraunces',serif; color:{{ capColor }}; text-wrap:pretty; animation:wg_capIn .7s cubic-bezier(0.22,0.61,0.36,1) both;">{{ caption }}</div>
+
+  <!-- water button -->
+  <div style="position:absolute; left:0; right:0; bottom:64px; display:flex; flex-direction:column; align-items:center; gap:10px; z-index:6;">
+    <div onClick="{{ water }}" style="width:64px; height:64px; border-radius:50%; display:grid; place-items:center; cursor:pointer; background:{{ waterBg }}; border:1px solid {{ waterBorder }}; -webkit-backdrop-filter:blur(14px); backdrop-filter:blur(14px); color:{{ waterIcon }}; box-shadow:{{ waterShadow }}; transition:transform .15s cubic-bezier(0.34,1.4,0.6,1);" style-active="transform:scale(0.9)"><i class="ph-fill ph-drop" style="font-size:28px;"></i></div>
+    <div style="font:400 12px 'Plus Jakarta Sans'; color:{{ faint }};">{{ waterHint }}</div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844},&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;dark&quot;,&quot;light&quot;],&quot;default&quot;:&quot;dark&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;stage&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:4,&quot;min&quot;:0,&quot;max&quot;:9,&quot;tsType&quot;:&quot;number&quot;}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this._stages = [
+      { day: 1, streak: 1, cap: 'A seed, planted with intention \uD83C\uDF31', glow: 'green' },
+      { day: 2, streak: 2, cap: 'It\u2019s breaking through.', glow: 'green' },
+      { day: 3, streak: 3, cap: 'Two little leaves. You\u2019re building it.', glow: 'green' },
+      { day: 5, streak: 5, cap: 'Taller every day.', glow: 'green' },
+      { day: 7, streak: 7, cap: 'One week. A true sapling now \uD83C\uDF31', glow: 'green' },
+      { day: 14, streak: 14, cap: 'Two weeks of showing up.', glow: 'green' },
+      { day: 21, streak: 21, cap: 'A bud is forming.', glow: 'purple' },
+      { day: 30, streak: 30, cap: 'Thirty days. It\u2019s almost ready.', glow: 'purple' },
+      { day: 60, streak: 60, cap: 'It\u2019s blooming.', glow: 'purple' },
+      { day: 100, streak: 100, cap: 'One hundred days. Your lotus has bloomed \uD83E\uDEB7 \u2014 and we planted a real tree for it.', glow: 'lotus' },
+    ];
+    const init = (props.stage != null) ? Math.max(0, Math.min(9, parseInt(props.stage, 10) || 0)) : 4;
+    this.state = { idx: init, boost: 0, perk: 0, droplets: [], particles: [] };
+  }
+
+  componentDidUpdate(prev) {
+    if (prev.stage !== this.props.stage && this.props.stage != null) {
+      const i = Math.max(0, Math.min(9, parseInt(this.props.stage, 10) || 0));
+      if (i !== this.state.idx) this.setState({ idx: i, boost: 0 });
+    }
+  }
+  componentDidMount() { if (this.state.idx === 9) this._spawnParticles(); }
+  componentWillUnmount() { clearTimeout(this._pt); clearTimeout(this._dt); clearInterval(this._pi); }
+
+  C() {
+    const dark = this.props.theme !== 'light';
+    return dark ? {
+      stem: '#84B06A', leaf: '#7BA75F', leafStroke: '#A6CE88', rib: '#B6D89A',
+      seedFill: '#7A5436', sproutPale: '#BFE0A8',
+      bud: '#9460C4', budStroke: '#6E2BB0', budHi: '#C7A6EC',
+      pOut: '#7A48B0', pMid: '#A06FD8', pIn: '#C9A6F0', center: '#EFCB6E', centerHi: '#F7E29E',
+    } : {
+      stem: '#6E9152', leaf: '#6F9A5A', leafStroke: '#5E8A4A', rib: '#8AAE70',
+      seedFill: '#6B4A2E', sproutPale: '#9DC07E',
+      bud: '#8E5FC0', budStroke: '#6E2BB0', budHi: '#B388E0',
+      pOut: '#7A48B0', pMid: '#9B6BD0', pIn: '#C29BE8', center: '#E8C56A', centerHi: '#F2DD94',
+    };
+  }
+
+  _rnd(n) { return Math.round(n * 10) / 10; }
+  _leaf(bx, by, ang, L, W) {
+    const a = ang * Math.PI / 180, ux = Math.sin(a), uy = -Math.cos(a), px = -uy, py = ux, r = this._rnd.bind(this);
+    const tx = bx + ux * L, ty = by + uy * L;
+    const c1x = bx + ux * 0.32 * L + px * W, c1y = by + uy * 0.32 * L + py * W;
+    const c2x = bx + ux * 0.74 * L + px * W * 0.72, c2y = by + uy * 0.74 * L + py * W * 0.72;
+    const c3x = bx + ux * 0.74 * L - px * W * 0.72, c3y = by + uy * 0.74 * L - py * W * 0.72;
+    const c4x = bx + ux * 0.32 * L - px * W, c4y = by + uy * 0.32 * L - py * W;
+    return 'M' + r(bx) + ',' + r(by) + ' C' + r(c1x) + ',' + r(c1y) + ' ' + r(c2x) + ',' + r(c2y) + ' ' + r(tx) + ',' + r(ty) + ' C' + r(c3x) + ',' + r(c3y) + ' ' + r(c4x) + ',' + r(c4y) + ' ' + r(bx) + ',' + r(by) + ' Z';
+  }
+  _ribPath(bx, by, ang, L) {
+    const a = ang * Math.PI / 180, ux = Math.sin(a), uy = -Math.cos(a), r = this._rnd.bind(this);
+    return 'M' + r(bx) + ',' + r(by) + ' L' + r(bx + ux * L * 0.82) + ',' + r(by + uy * L * 0.82);
+  }
+  _teardrop(cx, by, h, w) {
+    const r = this._rnd.bind(this);
+    return 'M' + cx + ',' + r(by) + ' C' + r(cx + w) + ',' + r(by - h * 0.42) + ' ' + r(cx + w * 0.5) + ',' + r(by - h) + ' ' + cx + ',' + r(by - h) +
+           ' C' + r(cx - w * 0.5) + ',' + r(by - h) + ' ' + r(cx - w) + ',' + r(by - h * 0.42) + ' ' + cx + ',' + r(by) + ' Z';
+  }
+
+  _buildPlant(idx) {
+    const C = this.C(), paths = [];
+    const baseX = 100, baseY = 210;
+    const tops = [206, 182, 166, 142, 120, 104, 98, 96, 96, 102];
+    const topY = tops[idx];
+
+    if (idx === 0) {
+      paths.push({ d: 'M' + baseX + ',204 C105,204 106,210 100,210 C94,210 95,204 100,204 Z', fill: C.seedFill, stroke: 'none', sw: 0, op: 1 });
+      paths.push({ d: 'M100,206 C101.5,200 100,196 98.5,193', fill: 'none', stroke: C.sproutPale, sw: 2.4, op: 1 });
+      return { paths, topY };
+    }
+
+    const sw = Math.min(2.2 + idx * 0.55, 6.4);
+    paths.push({ d: 'M' + baseX + ',' + baseY + ' C' + (baseX - 3) + ',' + (baseY - (baseY - topY) * 0.35) + ' ' + (baseX + 3) + ',' + (baseY - (baseY - topY) * 0.7) + ' ' + baseX + ',' + topY, fill: 'none', stroke: C.stem, sw: sw, op: 1 });
+
+    const L = {
+      1: [[1, -1, 11, 4.5], [0.86, 1, 9, 3.8]],
+      2: [[1, -1, 20, 8, 1], [1, 1, 20, 8, 1]],
+      3: [[0.5, -1, 16, 6.5], [0.66, 1, 17, 7], [0.82, -1, 15, 6], [0.96, 1, 13, 5.5], [1, 0, 12, 5]],
+      4: [[0.34, 1, 18, 7.5], [0.48, -1, 21, 9], [0.63, 1, 21, 9], [0.77, -1, 19, 8], [0.9, 1, 17, 7], [1, 0, 15, 6]],
+      5: [[0.24, -1, 20, 8.5], [0.31, 1, 18, 8], [0.44, -1, 25, 11], [0.52, 1, 24, 10.5], [0.65, -1, 23, 10], [0.73, 1, 21, 9], [0.85, -1, 18, 8], [0.93, 1, 16, 7], [1, 0, 15, 6.5]],
+      6: [[0.24, -1, 21, 9], [0.32, 1, 20, 8.5], [0.45, -1, 25, 11], [0.55, 1, 24, 10.5], [0.67, -1, 22, 9.5], [0.77, 1, 20, 8.5], [0.88, -1, 17, 7]],
+      7: [[0.24, -1, 22, 9.5], [0.32, 1, 21, 9], [0.45, -1, 26, 11.5], [0.55, 1, 25, 11], [0.67, -1, 23, 10], [0.77, 1, 21, 9], [0.88, -1, 18, 7.5]],
+      8: [[0.24, -1, 22, 9.5], [0.32, 1, 21, 9], [0.45, -1, 26, 11.5], [0.55, 1, 25, 11], [0.67, -1, 23, 10], [0.77, 1, 21, 9], [0.88, -1, 18, 7.5]],
+      9: [[0.22, -1, 23, 10], [0.3, 1, 22, 9.5], [0.42, -1, 28, 12.5], [0.52, 1, 27, 12], [0.64, -1, 25, 11], [0.74, 1, 23, 10], [0.85, -1, 20, 8.5], [0.92, 1, 18, 7.5]],
+    }[idx] || [];
+
+    L.forEach((lf) => {
+      const yf = lf[0], side = lf[1], len = lf[2], wid = lf[3], purple = lf[4];
+      const by = baseY - (baseY - topY) * yf;
+      const ang = side === 0 ? 0 : side * (44 - yf * 8);
+      paths.push({ d: this._leaf(baseX, by, ang, len, wid), fill: C.leaf, stroke: C.leafStroke, sw: 1.1, op: 1 });
+      if (len >= 16) paths.push({ d: this._ribPath(baseX, by, ang, len), fill: 'none', stroke: C.rib, sw: 1, op: 0.55 });
+      if (purple) { const a = ang * Math.PI / 180; const tx = baseX + Math.sin(a) * len, ty = by - Math.cos(a) * len; paths.push({ d: 'M' + this._rnd(tx) + ',' + this._rnd(ty) + ' m-3,2 a3,3 0 1,0 6,0 a3,3 0 1,0 -6,0', fill: C.pIn, stroke: 'none', sw: 0, op: 0.8 }); }
+    });
+
+    // bud / bloom
+    if (idx === 6) {
+      paths.push({ d: this._teardrop(baseX, topY + 2, 17, 9), fill: C.bud, stroke: C.budStroke, sw: 1.4, op: 1 });
+      paths.push({ d: 'M100,' + (topY + 2) + ' L100,' + (topY - 12), fill: 'none', stroke: C.budHi, sw: 1, op: 0.5 });
+    } else if (idx === 7) {
+      paths.push({ d: this._teardrop(baseX, topY + 3, 24, 13), fill: C.bud, stroke: C.budStroke, sw: 1.5, op: 1 });
+      paths.push({ d: 'M100,' + (topY + 3) + ' C107,' + (topY - 6) + ' 105,' + (topY - 16) + ' 100,' + (topY - 21), fill: 'none', stroke: C.budHi, sw: 1.2, op: 0.55 });
+      paths.push({ d: 'M100,' + (topY + 3) + ' C93,' + (topY - 6) + ' 95,' + (topY - 16) + ' 100,' + (topY - 21), fill: 'none', stroke: C.budHi, sw: 1.2, op: 0.55 });
+    } else if (idx === 8) {
+      // opening bloom: center bud + outer petals beginning to open
+      const cy = topY - 4;
+      [[-46, 24, 9], [46, 24, 9], [-20, 22, 8], [20, 22, 8], [0, 26, 9]].forEach((p) => {
+        paths.push({ d: this._leaf(baseX, cy + 4, p[0], p[1], p[2]), fill: C.pMid, stroke: C.budStroke, sw: 1, op: 0.96 });
+      });
+      paths.push({ d: this._teardrop(baseX, cy + 6, 18, 9), fill: C.pIn, stroke: 'none', sw: 0, op: 1 });
+      paths.push({ d: 'M100,' + (cy - 4) + ' m-3.5,0 a3.5,3.5 0 1,0 7,0 a3.5,3.5 0 1,0 -7,0', fill: C.center, stroke: 'none', sw: 0, op: 1 });
+    } else if (idx === 9) {
+      const cy = topY - 8;
+      // back drooping petals
+      [[-104, 32, 12], [104, 32, 12]].forEach((p) => paths.push({ d: this._leaf(baseX, cy + 8, p[0], p[1], p[2]), fill: C.pOut, stroke: 'none', sw: 0, op: 0.92 }));
+      // outer
+      [[-72, 46, 15], [-36, 50, 16], [0, 52, 16], [36, 50, 16], [72, 46, 15]].forEach((p) => paths.push({ d: this._leaf(baseX, cy + 6, p[0], p[1], p[2]), fill: C.pOut, stroke: C.budStroke, sw: 0.8, op: 1 }));
+      // mid
+      [[-52, 38, 14], [-18, 40, 13], [18, 40, 13], [52, 38, 14]].forEach((p) => paths.push({ d: this._leaf(baseX, cy + 4, p[0], p[1], p[2]), fill: C.pMid, stroke: 'none', sw: 0, op: 1 }));
+      // inner
+      [[-30, 28, 11], [0, 30, 11], [30, 28, 11]].forEach((p) => paths.push({ d: this._leaf(baseX, cy + 2, p[0], p[1], p[2]), fill: C.pIn, stroke: 'none', sw: 0, op: 1 }));
+      // gold center
+      paths.push({ d: 'M100,' + cy + ' m-9,0 a9,9 0 1,0 18,0 a9,9 0 1,0 -18,0', fill: C.center, stroke: 'none', sw: 0, op: 1 });
+      paths.push({ d: 'M100,' + (cy - 2) + ' m-4.5,0 a4.5,4.5 0 1,0 9,0 a4.5,4.5 0 1,0 -9,0', fill: C.centerHi, stroke: 'none', sw: 0, op: 1 });
+    }
+    return { paths, topY };
+  }
+
+  _haptic(p) { if (typeof navigator !== 'undefined' && navigator.vibrate) navigator.vibrate(p); }
+  _spawnParticles() {
+    clearInterval(this._pi);
+    const make = () => Array.from({ length: 7 }).map(() => ({ x: (24 + Math.random() * 52).toFixed(0), top: (26 + Math.random() * 34).toFixed(0), s: (9 + Math.random() * 9).toFixed(0), d: (Math.random() * 1.2).toFixed(2), dur: (2 + Math.random()).toFixed(2) }));
+    this.setState({ particles: make() });
+    this._pi = setInterval(() => { if (this.state.idx === 9) this.setState({ particles: make() }); }, 2600);
+  }
+
+  water = () => {
+    this._haptic([6, 22, 8]);
+    const drops = Array.from({ length: 7 }).map((_, i) => ({ x: (38 + Math.random() * 24).toFixed(0), d: (i * 0.06 + Math.random() * 0.08).toFixed(2), dur: (0.7 + Math.random() * 0.25).toFixed(2) }));
+    this.setState((s) => ({ droplets: drops, perk: s.perk + 1, boost: Math.min(s.boost + 0.02, 0.1) }));
+    clearTimeout(this._dt);
+    this._dt = setTimeout(() => this.setState({ droplets: [] }), 1300);
+  };
+  prev = () => { if (this.state.idx > 0) this.setState((s) => ({ idx: s.idx - 1, boost: 0, particles: [] }), () => { clearInterval(this._pi); }); };
+  next = () => { if (this.state.idx < 9) this.setState((s) => ({ idx: s.idx + 1, boost: 0 }), () => { if (this.state.idx === 9) this._spawnParticles(); }); };
+
+  THEME() {
+    const dark = this.props.theme !== 'light';
+    return dark ? {
+      bg: 'radial-gradient(72% 44% at 24% 14%,rgba(155,107,208,0.26),rgba(155,107,208,0) 60%),radial-gradient(64% 42% at 84% 24%,rgba(232,160,76,0.14),rgba(232,160,76,0) 62%),linear-gradient(165deg,#1A1726,#2E2440)',
+      blobA: 'radial-gradient(circle,rgba(155,107,208,0.4),rgba(155,107,208,0) 70%)', blobB: 'radial-gradient(circle,rgba(232,160,76,0.2),rgba(232,160,76,0) 70%)',
+      lotusMotif: '#E8E5F0', lotusOp: '0.045', grainBlend: 'overlay',
+      text: '#E8E5F0', faint: 'rgba(232,229,240,0.5)', capColor: '#D6D2E0',
+      streakBg: 'rgba(232,160,76,0.14)', streakBorder: 'rgba(232,160,76,0.3)', streakText: '#E8B763',
+      navBg: 'rgba(255,255,255,0.06)', navBorder: 'rgba(255,255,255,0.14)', navIcon: 'rgba(232,229,240,0.8)',
+      potBody: '#A06A45', potRim: '#B77E52', potSoil: '#4A3324', potHi: 'rgba(255,255,255,0.5)', potShadow: 'rgba(12,8,22,0.45)',
+      waterBg: 'rgba(120,170,210,0.18)', waterBorder: 'rgba(150,195,230,0.45)', waterIcon: '#C7E2F2', waterShadow: '0 10px 28px rgba(91,127,184,0.4), inset 0 1px 0 rgba(255,255,255,0.22)',
+    } : {
+      bg: 'radial-gradient(110% 70% at 86% 4%,#F7E6CC,rgba(247,230,204,0) 54%),radial-gradient(96% 66% at 8% 14%,#F1E8FB,rgba(241,232,251,0) 52%),linear-gradient(165deg,#FAF6EE,#F4E4CC)',
+      blobA: 'radial-gradient(circle,rgba(155,107,208,0.16),rgba(155,107,208,0) 70%)', blobB: 'radial-gradient(circle,rgba(232,160,76,0.18),rgba(232,160,76,0) 70%)',
+      lotusMotif: '#3D3A44', lotusOp: '0.04', grainBlend: 'multiply',
+      text: '#3D3A44', faint: '#9A95A0', capColor: '#5A565F',
+      streakBg: 'rgba(232,160,76,0.16)', streakBorder: 'rgba(232,160,76,0.34)', streakText: '#9E6A1E',
+      navBg: 'rgba(255,255,255,0.7)', navBorder: '#E7DDCD', navIcon: '#6B6770',
+      potBody: '#B5774B', potRim: '#C68A5E', potSoil: '#5A4030', potHi: 'rgba(255,255,255,0.55)', potShadow: 'rgba(36,26,62,0.16)',
+      waterBg: 'rgba(120,170,210,0.16)', waterBorder: 'rgba(120,170,210,0.4)', waterIcon: '#4F87B0', waterShadow: '0 10px 26px rgba(91,127,184,0.26), inset 0 1px 0 rgba(255,255,255,0.5)',
+    };
+  }
+
+  renderVals() {
+    const T = this.THEME(), st = this._stages[this.state.idx];
+    const built = this._buildPlant(this.state.idx);
+    const glowMap = {
+      green: 'radial-gradient(circle,rgba(157,184,144,0.5),rgba(157,184,144,0.08) 46%,rgba(157,184,144,0) 70%)',
+      purple: 'radial-gradient(circle,rgba(168,143,208,0.55),rgba(157,184,144,0.1) 44%,rgba(168,143,208,0) 70%)',
+      lotus: 'radial-gradient(circle,rgba(201,168,106,0.45),rgba(168,143,208,0.4) 38%,rgba(168,143,208,0) 70%)',
+    };
+    const haloSizeMap = { green: '150px', purple: '210px', lotus: '270px' };
+    const scale = (1 + this.state.boost).toFixed(3);
+    const perkAnim = this.state.perk > 0 ? ('wg_perk 0.7s cubic-bezier(0.34,1.4,0.6,1) ' + this.state.perk) : 'none';
+
+    const droplets = this.state.droplets.map((d) => ({
+      style: 'position:absolute; left:' + d.x + '%; top:0; width:5px; height:11px; border-radius:50% 50% 50% 50%/60% 60% 40% 40%; background:linear-gradient(180deg,rgba(190,225,245,0.95),rgba(120,175,215,0.85)); box-shadow:0 0 6px rgba(150,200,235,0.7); animation:wg_drop ' + d.dur + 's cubic-bezier(0.5,0,0.75,0.4) ' + d.d + 's both;',
+    }));
+    const particles = this.state.particles.map((p) => ({
+      style: 'position:absolute; left:' + p.x + '%; top:' + p.top + '%; font-size:' + p.s + 'px; color:#F0C868; text-shadow:0 0 8px rgba(240,200,104,0.85); animation:wg_particle ' + p.dur + 's cubic-bezier(0.22,0.61,0.36,1) ' + p.d + 's both;',
+    }));
+
+    return {
+      bg: T.bg, blobA: T.blobA, blobB: T.blobB, lotusMotif: T.lotusMotif, lotusOp: T.lotusOp, grainBlend: T.grainBlend,
+      text: T.text, faint: T.faint, capColor: T.capColor,
+      dayLabel: 'Day ' + st.day, dayKey: 'd' + this.state.idx,
+      streakBg: T.streakBg, streakBorder: T.streakBorder, streakText: T.streakText,
+      streakLabel: st.streak + (st.streak === 1 ? ' day streak' : ' day streak'),
+      caption: st.cap, capKey: 'c' + this.state.idx, capColor: T.capColor,
+      navBg: T.navBg, navBorder: T.navBorder, navIcon: T.navIcon,
+      prev: this.prev, next: this.next, prevOp: this.state.idx === 0 ? '0.25' : '1', nextOp: this.state.idx === 9 ? '0.25' : '1',
+      plantPaths: built.paths,
+      plantStyle: 'transform-box:fill-box; transform-origin:100px 210px; transform:scale(' + scale + '); animation:' + perkAnim + ';',
+      halo: glowMap[st.glow], haloSize: haloSizeMap[st.glow], haloDur: st.glow === 'lotus' ? '5s' : '6.5s',
+      droplets, particles,
+      potBody: T.potBody, potRim: T.potRim, potSoil: T.potSoil, potHi: T.potHi, potShadow: T.potShadow,
+      waterBg: T.waterBg, waterBorder: T.waterBorder, waterIcon: T.waterIcon, waterShadow: T.waterShadow,
+      water: this.water, waterHint: 'Tap to water',
+    };
+  }
+}
+</script>
+</body>
+</html>

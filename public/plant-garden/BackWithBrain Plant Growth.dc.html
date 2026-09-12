@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500&display=swap" />
+</helmet>
+
+<div style="position:absolute; left:40px; top:40px; width:1700px;">
+  <div data-drags-parent="1" style="font:500 15px/1.4 'Plus Jakarta Sans',sans-serif; color:#3D3A44; margin:0 0 4px 4px;">Your streak, growing — 10 stages</div>
+  <div data-drags-parent="1" style="font:400 13px/1.4 'Plus Jakarta Sans',sans-serif; color:#6B6770; margin:0 0 16px 4px;">Tap the water drop on any phone to feed the plant — droplets fall, the plant perks up. Use ‹ › to step through days. Dark theme.</div>
+</div>
+
+<div style="position:absolute; left:40px; top:118px; width:390px;">
+  <div data-drags-parent="1" style="font:500 12px/1 'Plus Jakarta Sans',sans-serif; color:#8E8A78; margin:0 0 9px 4px; letter-spacing:0.04em;">DAY 1 · seed</div>
+  <dc-import name="PlantGrowth" theme="dark" stage="0" hint-size="390px,844px"></dc-import>
+</div>
+<div style="position:absolute; left:470px; top:118px; width:390px;">
+  <div data-drags-parent="1" style="font:500 12px/1 'Plus Jakarta Sans',sans-serif; color:#8E8A78; margin:0 0 9px 4px; letter-spacing:0.04em;">DAY 2 · breaking through</div>
+  <dc-import name="PlantGrowth" theme="dark" stage="1" hint-size="390px,844px"></dc-import>
+</div>
+<div style="position:absolute; left:900px; top:118px; width:390px;">
+  <div data-drags-parent="1" style="font:500 12px/1 'Plus Jakarta Sans',sans-serif; color:#8E8A78; margin:0 0 9px 4px; letter-spacing:0.04em;">DAY 3 · two leaves</div>
+  <dc-import name="PlantGrowth" theme="dark" stage="2" hint-size="390px,844px"></dc-import>
+</div>
+<div style="position:absolute; left:1330px; top:118px; width:390px;">
+  <div data-drags-parent="1" style="font:500 12px/1 'Plus Jakarta Sans',sans-serif; color:#8E8A78; margin:0 0 9px 4px; letter-spacing:0.04em;">DAY 5 · taller</div>
+  <dc-import name="PlantGrowth" theme="dark" stage="3" hint-size="390px,844px"></dc-import>
+</div>
+
+<div style="position:absolute; left:40px; top:1030px; width:390px;">
+  <div data-drags-parent="1" style="font:500 12px/1 'Plus Jakarta Sans',sans-serif; color:#8E8A78; margin:0 0 9px 4px; letter-spacing:0.04em;">DAY 7 · sapling</div>
+  <dc-import name="PlantGrowth" theme="dark" stage="4" hint-size="390px,844px"></dc-import>
+</div>
+<div style="position:absolute; left:470px; top:1030px; width:390px;">
+  <div data-drags-parent="1" style="font:500 12px/1 'Plus Jakarta Sans',sans-serif; color:#8E8A78; margin:0 0 9px 4px; letter-spacing:0.04em;">DAY 14 · two weeks</div>
+  <dc-import name="PlantGrowth" theme="dark" stage="5" hint-size="390px,844px"></dc-import>
+</div>
+<div style="position:absolute; left:900px; top:1030px; width:390px;">
+  <div data-drags-parent="1" style="font:500 12px/1 'Plus Jakarta Sans',sans-serif; color:#8E8A78; margin:0 0 9px 4px; letter-spacing:0.04em;">DAY 21 · a bud</div>
+  <dc-import name="PlantGrowth" theme="dark" stage="6" hint-size="390px,844px"></dc-import>
+</div>
+<div style="position:absolute; left:1330px; top:1030px; width:390px;">
+  <div data-drags-parent="1" style="font:500 12px/1 'Plus Jakarta Sans',sans-serif; color:#8E8A78; margin:0 0 9px 4px; letter-spacing:0.04em;">DAY 30 · almost</div>
+  <dc-import name="PlantGrowth" theme="dark" stage="7" hint-size="390px,844px"></dc-import>
+</div>
+
+<div style="position:absolute; left:40px; top:1942px; width:390px;">
+  <div data-drags-parent="1" style="font:500 12px/1 'Plus Jakarta Sans',sans-serif; color:#8E8A78; margin:0 0 9px 4px; letter-spacing:0.04em;">DAY 60 · blooming</div>
+  <dc-import name="PlantGrowth" theme="dark" stage="8" hint-size="390px,844px"></dc-import>
+</div>
+<div style="position:absolute; left:470px; top:1942px; width:390px;">
+  <div data-drags-parent="1" style="font:500 12px/1 'Plus Jakarta Sans',sans-serif; color:#8E8A78; margin:0 0 9px 4px; letter-spacing:0.04em;">DAY 100 · lotus bloomed 🪷</div>
+  <dc-import name="PlantGrowth" theme="dark" stage="9" hint-size="390px,844px"></dc-import>
+</div>
+
+<div style="position:absolute; left:980px; top:1900px; width:820px;">
+  <div data-drags-parent="1" style="font:500 15px/1.4 'Plus Jakarta Sans',sans-serif; color:#3D3A44; margin:0 0 16px 4px;">Light theme — same plant by daylight</div>
+</div>
+<div style="position:absolute; left:980px; top:1942px; width:390px;">
+  <div data-drags-parent="1" style="font:500 12px/1 'Plus Jakarta Sans',sans-serif; color:#8E8A78; margin:0 0 9px 4px; letter-spacing:0.04em;">DAY 7 · sapling · light</div>
+  <dc-import name="PlantGrowth" theme="light" stage="4" hint-size="390px,844px"></dc-import>
+</div>
+<div style="position:absolute; left:1410px; top:1942px; width:390px;">
+  <div data-drags-parent="1" style="font:500 12px/1 'Plus Jakarta Sans',sans-serif; color:#8E8A78; margin:0 0 9px 4px; letter-spacing:0.04em;">DAY 100 · lotus · light</div>
+  <dc-import name="PlantGrowth" theme="light" stage="9" hint-size="390px,844px"></dc-import>
+</div>
+</x-dc>
+</body>
+</html>

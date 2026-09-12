@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<style>
+  html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #140e22;
+  }
+  .stage {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+  .stage dc-import,
+  .stage > * {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .stage [style*="width:390px"] {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+</style>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas" />
+</helmet>
+<div class="stage">
+  <dc-import name="PlantGrowth" theme="dark" stage="0" hint-size="390px,844px"></dc-import>
+</div>
+</x-dc>
+<script>
+  (function () {
+    var STAGE_DAYS = [1, 2, 3, 5, 7, 14, 21, 30, 60, 100]
+
+    function stageFromPlantDay(plantDay) {
+      var day = Number(plantDay) || 0
+      var idx = 0
+      for (var i = 0; i < STAGE_DAYS.length; i += 1) {
+        if (day >= STAGE_DAYS[i]) idx = i
+      }
+      return String(idx)
+    }
+
+    function applyState(data) {
+      var el = document.querySelector('dc-import[name="PlantGrowth"]')
+      if (!el) return false
+      el.setAttribute('stage', stageFromPlantDay(data.plantDay))
+      return true
+    }
+
+    window.addEventListener('message', function (event) {
+      if (!event.data || event.data.type !== 'MINDGARDEN_STATE') return
+      var attempts = 0
+      var tryApply = function () {
+        if (applyState(event.data) || attempts > 20) return
+        attempts += 1
+        window.setTimeout(tryApply, 50)
+      }
+      tryApply()
+    })
+
+    document.addEventListener('click', function (event) {
+      var target = event.target
+      if (!target || !target.closest) return
+      if (!target.closest('.ph-drop, .ph-fill.ph-drop')) return
+      window.parent.postMessage({ type: 'MINDGARDEN_PLANT_WATERED' }, '*')
+    }, true)
+  })()
+</script>
+</body>
+</html>
