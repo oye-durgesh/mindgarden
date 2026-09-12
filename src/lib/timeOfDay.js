@@ -104,6 +104,6 @@ export const PLAN_ITEMS = {
     id: 'sleep-journey',
     title: 'Sleep journey',
     subtitle: 'Wind-down for later tonight',
-    route: '/games/body-scan',
+    route: '/sleep-journey',
   },
 }

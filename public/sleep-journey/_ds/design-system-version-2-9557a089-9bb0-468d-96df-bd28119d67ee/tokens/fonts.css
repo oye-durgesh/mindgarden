@@ -1,0 +1,7 @@
+/* BackWithBrain — Webfonts
+   No binaries were supplied with the brief, so both families load from
+   Google Fonts (Latin + Devanagari subsets). SUBSTITUTION FLAG: when the
+   brand's licensed font files arrive, replace this @import with local
+   @font-face rules pointing at the binaries in assets/fonts/. */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap');

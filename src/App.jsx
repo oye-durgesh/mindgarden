@@ -11,6 +11,7 @@ import MoodCheckInIframe from './screens/MoodCheckInIframe.jsx'
 import TravelMode from './screens/TravelMode.jsx'
 import TravelModeIframe from './screens/TravelModeIframe.jsx'
 import PlantStreak from './screens/PlantStreak.jsx'
+import SleepJourneyIframe from './screens/SleepJourneyIframe.jsx'
 import Learn from './screens/Learn.jsx'
 import Buddy from './screens/Buddy.jsx'
 import Me from './screens/Me.jsx'
@@ -53,6 +54,7 @@ function AppRoutes() {
               <Route path="/travel" element={<TravelMode />} />
               <Route path="/travel-mode-view" element={<TravelModeIframe />} />
               <Route path="/plant" element={<PlantStreak />} />
+              <Route path="/sleep-journey" element={<SleepJourneyIframe />} />
               <Route path="/practice" element={<Navigate to="/" replace />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>

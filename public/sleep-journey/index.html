@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #0E0B1A;
+  }
+  iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+</style>
+</head>
+<body>
+<iframe id="sleep-canvas" src="./BackWithBrain%20Sleep.dc.html" title="Sleep journey"></iframe>
+<script>
+  document.getElementById('sleep-canvas').addEventListener('load', function () {
+    var doc = this.contentDocument
+    if (!doc) return
+    var style = doc.createElement('style')
+    style.textContent = [
+      'html, body { margin:0 !important; width:100% !important; height:100% !important; overflow:hidden !important; background:#0E0B1A !important; }',
+      '[data-screen-label="Sleep — welcome"] { position:fixed !important; inset:0 !important; width:100% !important; height:100% !important; border-radius:0 !important; box-shadow:none !important; z-index:99 !important; }',
+      '[data-screen-label]:not([data-screen-label="Sleep — welcome"]) { display:none !important; }',
+    ].join('\n')
+    doc.head.appendChild(style)
+  })
+</script>
+</body>
+</html>
