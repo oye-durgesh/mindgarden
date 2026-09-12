@@ -75,7 +75,7 @@ export default function GamePlay() {
 
   if (!game) {
     return (
-      <div className="flex min-h-dvh items-center justify-center bg-night-to text-text-onDark">
+      <div className="flex min-h-dvh grow shrink-0 items-center justify-center bg-night-to text-text-onDark md:min-h-full">
         Game not found.
       </div>
     )
@@ -84,7 +84,7 @@ export default function GamePlay() {
   const Engine = ENGINES[game.engine]
 
   return (
-    <div className="relative flex min-h-dvh flex-col bg-gradient-to-b from-gamesHub-from to-gamesHub-to">
+    <div className="relative flex min-h-dvh grow shrink-0 flex-col bg-gradient-to-b from-gamesHub-from to-gamesHub-to md:min-h-full">
       <RadialGlow color={game.category === 'memory' ? 'orange' : 'purple'} />
       <GameHeader title={game.name} secondsLeft={secondsLeft} onBack={() => navigate(-1)} />
       <div className="relative flex flex-1 flex-col pb-10">

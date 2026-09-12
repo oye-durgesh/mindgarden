@@ -53,7 +53,7 @@ export default function PhoneMockup({ children }) {
           aria-hidden
         />
         <div
-          className="relative isolate h-full w-full overflow-hidden"
+          className="relative isolate flex h-full w-full flex-col overflow-hidden"
           style={{
             width: 393,
             height: 852,

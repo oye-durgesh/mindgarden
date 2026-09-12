@@ -23,9 +23,9 @@ function AppRoutes() {
   const showNav = TAB_PATHS.includes(location.pathname)
 
   return (
-    <div className={`relative isolate ${isDesktop ? 'h-full w-full overflow-hidden' : 'min-h-dvh'}`}>
+    <div className={`relative isolate ${isDesktop ? 'flex h-full w-full flex-col overflow-hidden' : 'min-h-dvh'}`}>
       <div
-        className={isDesktop ? 'absolute inset-0 overflow-x-hidden overflow-y-auto' : ''}
+        className={isDesktop ? 'absolute inset-0 flex flex-col overflow-x-hidden overflow-y-auto' : ''}
         style={
           isDesktop
             ? { paddingTop: PHONE_SAFE_TOP }
@@ -39,7 +39,7 @@ function AppRoutes() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="flex min-h-full flex-col"
+            className="flex min-h-full grow shrink-0 flex-col"
           >
             <Routes location={location}>
               <Route path="/" element={<Practice />} />

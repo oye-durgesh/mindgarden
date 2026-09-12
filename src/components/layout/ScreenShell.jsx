@@ -22,12 +22,12 @@ export default function ScreenShell({
 
   return (
     <div
-      className={`relative flex min-h-dvh flex-col bg-gradient-to-b md:min-h-full ${gradient} ${
+      className={`relative flex min-h-dvh grow shrink-0 flex-col bg-gradient-to-b md:min-h-full ${gradient} ${
         light ? 'text-text-onLight' : 'text-text-onDark'
       } ${className}`}
       data-theme={light ? 'light' : 'dark'}
     >
-      <div className={`mx-auto flex min-h-dvh w-full max-w-md flex-col md:min-h-full ${padded ? 'px-5 pb-36 pt-3' : ''}`}>
+      <div className={`mx-auto flex min-h-dvh w-full max-w-md grow flex-col md:min-h-full ${padded ? 'px-5 pb-36 pt-3' : ''}`}>
         {children}
       </div>
     </div>

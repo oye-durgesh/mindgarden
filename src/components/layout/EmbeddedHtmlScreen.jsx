@@ -7,7 +7,7 @@ export default function EmbeddedHtmlScreen({ src, title, backTo = '/' }) {
   const isDesktop = useIsDesktop()
 
   return (
-    <div className={`overflow-hidden bg-black ${isDesktop ? 'h-full min-h-full' : 'relative h-dvh w-full'}`}>
+    <div className={`overflow-hidden bg-black ${isDesktop ? 'flex min-h-full grow shrink-0 flex-col' : 'relative h-dvh w-full'}`}>
       <button
         type="button"
         onClick={() => navigate(backTo)}
@@ -16,7 +16,7 @@ export default function EmbeddedHtmlScreen({ src, title, backTo = '/' }) {
       >
         <ChevronLeft size={20} />
       </button>
-      <iframe src={src} title={title} className="h-full w-full border-0" />
+      <iframe src={src} title={title} className="min-h-full w-full flex-1 border-0" />
     </div>
   )
 }
