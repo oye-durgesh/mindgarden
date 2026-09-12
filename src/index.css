@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --morning-from: #f5ede0;
+  --morning-to: #eee0c8;
+  --afternoon-from: #f7ddb8;
+  --afternoon-to: #f0c090;
+  --evening-from: #2b1f3d;
+  --evening-to: #1c1430;
+  --night-from: #1a1428;
+  --night-to: #0f0c1a;
+  --games-hub-from: #241a33;
+  --games-hub-to: #160f22;
+  --accent-purple: #8b5cf6;
+  --accent-purple-dark: #6d28d9;
+  --accent-orange: #f5a962;
+  --accent-green: #7fd67f;
+  --card-light: rgba(255, 255, 255, 0.9);
+  --card-dark: rgba(255, 255, 255, 0.06);
+  --card-dark-border: rgba(255, 255, 255, 0.1);
+  --text-on-dark: #f2eefa;
+  --text-on-dark-muted: #a89bc0;
+  --text-on-light: #2b2233;
+  --text-on-light-muted: #8a8090;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: theme('fontFamily.sans');
+  -webkit-font-smoothing: antialiased;
+  background: #160f22;
+}
+
+.font-serif {
+  font-family: theme('fontFamily.serif');
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.glass-light {
+  background: var(--card-light);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow: 0 8px 32px rgba(43, 31, 61, 0.08);
+  backdrop-filter: blur(16px);
+}
+
+.glass-dark {
+  background: var(--card-dark);
+  border: 1px solid var(--card-dark-border);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(16px);
+}
+
+input[type='range']::-webkit-slider-thumb {
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: #f2eefa;
+  border: 3px solid #8b5cf6;
+  box-shadow: 0 0 0 6px rgba(139, 92, 246, 0.18);
+}
+
+input[type='range']::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: #f2eefa;
+  border: 3px solid #8b5cf6;
+}
