@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/design-system-version-2-9557a089-9bb0-468d-96df-bd28119d67ee/tokens/fonts.css" />
+<link rel="stylesheet" href="_ds/design-system-version-2-9557a089-9bb0-468d-96df-bd28119d67ee/tokens/colors.css" />
+<link rel="stylesheet" href="_ds/design-system-version-2-9557a089-9bb0-468d-96df-bd28119d67ee/tokens/typography.css" />
+<link rel="stylesheet" href="_ds/design-system-version-2-9557a089-9bb0-468d-96df-bd28119d67ee/tokens/effects.css" />
+<link rel="stylesheet" href="_ds/design-system-version-2-9557a089-9bb0-468d-96df-bd28119d67ee/styles.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,400;9..144,0,500;9..144,1,400&family=Plus+Jakarta+Sans:wght@400;500&display=swap" />
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+<script src="_ds/design-system-version-2-9557a089-9bb0-468d-96df-bd28119d67ee/_ds_bundle.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  .bwb-scroll::-webkit-scrollbar { height: 0; width: 0; }
+  .bwb-scroll { scrollbar-width: none; }
+  .bwb-vol { -webkit-appearance: none; appearance: none; width: 100%; height: 3px; border-radius: 999px; background: rgba(255,255,255,0.16); outline: none; cursor: pointer; }
+  .bwb-vol::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 13px; height: 13px; border-radius: 50%; background: #E8E5F0; box-shadow: 0 0 10px rgba(141,163,196,0.9); cursor: pointer; }
+  .bwb-vol::-moz-range-thumb { width: 13px; height: 13px; border: none; border-radius: 50%; background: #E8E5F0; box-shadow: 0 0 10px rgba(141,163,196,0.9); cursor: pointer; }
+  @keyframes twinkle { 0%,100%{opacity:.2} 50%{opacity:.95} }
+  @keyframes cloudDrift { from{transform:translateX(-340px)} to{transform:translateX(450px)} }
+  @keyframes moonBreath { 0%,100%{transform:scale(1);opacity:.4} 50%{transform:scale(1.2);opacity:.72} }
+  @keyframes orbBreath { 0%,100%{transform:scale(.78)} 50%{transform:scale(1.12)} }
+  @keyframes orbGlow { 0%,100%{box-shadow:0 0 50px 8px rgba(141,163,196,.34),0 0 110px 26px rgba(141,163,196,.16)} 50%{box-shadow:0 0 86px 22px rgba(141,163,196,.52),0 0 150px 44px rgba(141,163,196,.26)} }
+  @keyframes rainFall { from{transform:translateY(-40px)} to{transform:translateY(880px)} }
+  @keyframes firefly { 0%{transform:translate(0,0);opacity:0} 20%{opacity:1} 50%{transform:translate(22px,-30px);opacity:.65} 80%{opacity:1} 100%{transform:translate(-12px,-60px);opacity:0} }
+  @keyframes waveSlide { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+  @keyframes waveBob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
+  @keyframes mistDrift { 0%,100%{transform:translateX(-26px)} 50%{transform:translateX(34px)} }
+  @keyframes auroraDrift { 0%,100%{transform:translate(-18px,0) scale(1)} 50%{transform:translate(26px,-18px) scale(1.1)} }
+  @keyframes sparkle { 0%,100%{opacity:.12;transform:scale(.6)} 50%{opacity:.9;transform:scale(1.15)} }
+  @keyframes fadeFromBlack { from{opacity:1} to{opacity:0} }
+  @keyframes screenIn { from{opacity:0;transform:scale(1.015)} to{opacity:1;transform:scale(1)} }
+  [data-rm="true"] * { animation: none !important; }
+</style>
+</helmet>
+
+<div data-rm="{{ rm }}" style="width:max-content; min-width:100%; min-height:100vh; box-sizing:border-box; padding:48px; background:#e7e5df; font-family:'Plus Jakarta Sans',sans-serif;">
+  <div style="display:flex; gap:48px; align-items:flex-start;">
+
+    <!-- ░░░░░░░░░░ SCREEN 1 — WELCOME ░░░░░░░░░░ -->
+    <div style="flex:none; width:390px;">
+      <div style="font:500 13px/1 'Plus Jakarta Sans',sans-serif; color:#6B6770; margin:0 0 12px 4px; letter-spacing:0.02em;">1 · welcome to your sleep journey</div>
+      <div data-screen-label="Sleep — welcome" style="width:390px; height:844px; border-radius:30px; overflow:hidden; position:relative; box-shadow:0 18px 50px rgba(14,11,26,0.45); background:linear-gradient(178deg,#0E0B1A 0%,#1A1726 52%,#2A2142 100%);">
+
+        <!-- clouds -->
+        <div style="position:absolute; top:16%; left:0; width:300px; height:96px; border-radius:50%; background:radial-gradient(ellipse at center,rgba(196,190,224,0.16),rgba(196,190,224,0) 70%); filter:blur(14px); animation:cloudDrift 82s linear -10s infinite;"></div>
+        <div style="position:absolute; top:40%; left:0; width:240px; height:74px; border-radius:50%; background:radial-gradient(ellipse at center,rgba(170,180,220,0.13),rgba(170,180,220,0) 70%); filter:blur(16px); animation:cloudDrift 104s linear -46s infinite;"></div>
+        <div style="position:absolute; top:62%; left:0; width:330px; height:108px; border-radius:50%; background:radial-gradient(ellipse at center,rgba(150,140,190,0.11),rgba(150,140,190,0) 72%); filter:blur(18px); animation:cloudDrift 122s linear -22s infinite;"></div>
+
+        <!-- stars -->
+        <sc-for list="{{ starsA }}" as="st" hint-placeholder-count="0"><div style="{{ st.style }}"></div></sc-for>
+
+        <!-- moon -->
+        <div style="position:absolute; top:64px; right:54px; width:60px; height:60px;">
+          <div style="position:absolute; inset:-30px; border-radius:50%; background:radial-gradient(circle,rgba(232,229,240,0.45),rgba(232,229,240,0) 70%); animation:moonBreath 9s ease-in-out infinite;"></div>
+          <div style="position:absolute; inset:0; border-radius:50%; background:radial-gradient(circle at 38% 34%,#F6F3EA,#D9D3E4 78%); box-shadow:0 0 28px rgba(232,229,240,0.4);"></div>
+        </div>
+
+        <!-- center copy -->
+        <div style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:0 44px; text-align:center;">
+          <div style="width:46px; height:46px; border-radius:50%; margin-bottom:30px; background:radial-gradient(circle,rgba(141,163,196,0.5),rgba(141,163,196,0) 70%); animation:orbBreath 10s ease-in-out infinite;"></div>
+          <h1 style="font:400 30px/1.35 'Fraunces',serif; color:#E8E5F0; margin:0 0 14px; text-wrap:pretty;">Welcome to your sleep journey</h1>
+          <p style="font:400 15px/1.6 'Plus Jakarta Sans',sans-serif; color:#A8A4B5; margin:0;">Let's wind down, together.</p>
+        </div>
+
+        <!-- begin -->
+        <div style="position:absolute; left:0; right:0; bottom:64px; display:flex; justify-content:center;">
+          <div style="height:52px; padding:0 50px; display:flex; align-items:center; justify-content:center; border-radius:999px; cursor:pointer; font:500 15px 'Plus Jakarta Sans',sans-serif; letter-spacing:0.01em; color:#EAF0FA; background:rgba(141,163,196,0.18); border:1px solid rgba(141,163,196,0.42); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); box-shadow:0 8px 30px rgba(91,127,184,0.40), inset 0 1px 0 rgba(255,255,255,0.18); transition:transform .16s cubic-bezier(0.22,0.61,0.36,1), box-shadow .3s ease;" style-active="transform:scale(0.96)" style-hover="box-shadow:0 10px 38px rgba(91,127,184,0.55), inset 0 1px 0 rgba(255,255,255,0.22)">Begin</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ░░░░░░░░░░ SCREEN 2 — CHOOSE YOUR JOURNEY ░░░░░░░░░░ -->
+    <div style="flex:none; width:390px;">
+      <div style="font:500 13px/1 'Plus Jakarta Sans',sans-serif; color:#6B6770; margin:0 0 12px 4px; letter-spacing:0.02em;">2 · what would help tonight?</div>
+      <div data-screen-label="Sleep — choose your journey" style="width:390px; height:844px; border-radius:30px; overflow:hidden; position:relative; box-shadow:0 18px 50px rgba(14,11,26,0.45); background:linear-gradient(178deg,#0E0B1A 0%,#1A1726 52%,#2A2142 100%);">
+
+        <div style="position:absolute; top:20%; left:0; width:280px; height:88px; border-radius:50%; background:radial-gradient(ellipse at center,rgba(196,190,224,0.13),rgba(196,190,224,0) 70%); filter:blur(15px); animation:cloudDrift 96s linear -30s infinite;"></div>
+        <div style="position:absolute; top:55%; left:0; width:320px; height:100px; border-radius:50%; background:radial-gradient(ellipse at center,rgba(150,140,190,0.10),rgba(150,140,190,0) 72%); filter:blur(18px); animation:cloudDrift 118s linear -60s infinite;"></div>
+        <sc-for list="{{ starsB }}" as="st" hint-placeholder-count="0"><div style="{{ st.style }}"></div></sc-for>
+        <div style="position:absolute; top:54px; right:46px; width:42px; height:42px;">
+          <div style="position:absolute; inset:-22px; border-radius:50%; background:radial-gradient(circle,rgba(232,229,240,0.4),rgba(232,229,240,0) 70%); animation:moonBreath 9s ease-in-out infinite;"></div>
+          <div style="position:absolute; inset:0; border-radius:50%; background:radial-gradient(circle at 38% 34%,#F6F3EA,#D9D3E4 78%); box-shadow:0 0 22px rgba(232,229,240,0.35);"></div>
+        </div>
+
+        <div class="bwb-scroll" style="position:absolute; inset:0; overflow-y:auto; padding:64px 0 40px;">
+          <h1 style="font:400 26px/1.3 'Fraunces',serif; color:#E8E5F0; margin:0 86px 26px 24px; text-wrap:pretty;">What would help tonight?</h1>
+
+          <div style="font:500 12.5px/1 'Plus Jakarta Sans',sans-serif; color:#A8A4B5; letter-spacing:0.04em; margin:0 24px 13px;">Guided sleep sessions</div>
+          <div class="bwb-scroll" style="display:flex; gap:13px; overflow-x:auto; padding:0 24px 6px; scroll-snap-type:x mandatory;">
+            <div style="scroll-snap-align:start; flex:none; width:178px; height:150px; border-radius:20px; padding:18px; display:flex; flex-direction:column; justify-content:space-between; cursor:pointer; background:linear-gradient(160deg,rgba(91,127,184,0.22),rgba(91,127,184,0.10)); border:1px solid rgba(141,163,196,0.28); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); box-shadow:0 8px 26px rgba(91,127,184,0.20); transition:transform .14s cubic-bezier(0.22,0.61,0.36,1);" style-active="transform:scale(0.97)">
+              <i class="ph ph-moon" style="font-size:24px; color:#BFD0E8;"></i>
+              <div><div style="font:400 17px/1.25 'Fraunces',serif; color:#E8E5F0; margin-bottom:6px;">Sleep onset</div><div style="font:400 12.5px/1.4 'Plus Jakarta Sans',sans-serif; color:#9FA6BC;">fall asleep faster</div></div>
+            </div>
+            <div style="scroll-snap-align:start; flex:none; width:178px; height:150px; border-radius:20px; padding:18px; display:flex; flex-direction:column; justify-content:space-between; cursor:pointer; background:linear-gradient(160deg,rgba(91,127,184,0.22),rgba(91,127,184,0.10)); border:1px solid rgba(141,163,196,0.28); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); box-shadow:0 8px 26px rgba(91,127,184,0.20); transition:transform .14s cubic-bezier(0.22,0.61,0.36,1);" style-active="transform:scale(0.97)">
+              <i class="ph ph-person-simple" style="font-size:24px; color:#BFD0E8;"></i>
+              <div><div style="font:400 17px/1.25 'Fraunces',serif; color:#E8E5F0; margin-bottom:6px;">Body scan</div><div style="font:400 12.5px/1.4 'Plus Jakarta Sans',sans-serif; color:#9FA6BC;">release tension</div></div>
+            </div>
+            <div style="scroll-snap-align:start; flex:none; width:178px; height:150px; border-radius:20px; padding:18px; display:flex; flex-direction:column; justify-content:space-between; cursor:pointer; background:linear-gradient(160deg,rgba(91,127,184,0.22),rgba(91,127,184,0.10)); border:1px solid rgba(141,163,196,0.28); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); box-shadow:0 8px 26px rgba(91,127,184,0.20); transition:transform .14s cubic-bezier(0.22,0.61,0.36,1);" style-active="transform:scale(0.97)">
+              <i class="ph ph-brain" style="font-size:24px; color:#BFD0E8;"></i>
+              <div><div style="font:400 17px/1.25 'Fraunces',serif; color:#E8E5F0; margin-bottom:6px;">Worry download</div><div style="font:400 12.5px/1.4 'Plus Jakarta Sans',sans-serif; color:#9FA6BC;">empty your mind</div></div>
+            </div>
+            <div style="scroll-snap-align:start; flex:none; width:178px; height:150px; border-radius:20px; padding:18px; display:flex; flex-direction:column; justify-content:space-between; cursor:pointer; background:linear-gradient(160deg,rgba(91,127,184,0.22),rgba(91,127,184,0.10)); border:1px solid rgba(141,163,196,0.28); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); box-shadow:0 8px 26px rgba(91,127,184,0.20); transition:transform .14s cubic-bezier(0.22,0.61,0.36,1);" style-active="transform:scale(0.97)">
+              <i class="ph ph-book-open" style="font-size:24px; color:#BFD0E8;"></i>
+              <div><div style="font:400 17px/1.25 'Fraunces',serif; color:#E8E5F0; margin-bottom:6px;">Deep sleep story</div><div style="font:400 12.5px/1.4 'Plus Jakarta Sans',sans-serif; color:#9FA6BC;">a calm bedtime tale</div></div>
+            </div>
+            <div style="scroll-snap-align:start; flex:none; width:178px; height:150px; border-radius:20px; padding:18px; display:flex; flex-direction:column; justify-content:space-between; cursor:pointer; background:linear-gradient(160deg,rgba(91,127,184,0.22),rgba(91,127,184,0.10)); border:1px solid rgba(141,163,196,0.28); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); box-shadow:0 8px 26px rgba(91,127,184,0.20); transition:transform .14s cubic-bezier(0.22,0.61,0.36,1);" style-active="transform:scale(0.97)">
+              <i class="ph ph-timer" style="font-size:24px; color:#BFD0E8;"></i>
+              <div><div style="font:400 17px/1.25 'Fraunces',serif; color:#E8E5F0; margin-bottom:6px;">3-min quick sleep</div><div style="font:400 12.5px/1.4 'Plus Jakarta Sans',sans-serif; color:#9FA6BC;">short &amp; deep</div></div>
+            </div>
+          </div>
+
+          <div style="font:500 12.5px/1 'Plus Jakarta Sans',sans-serif; color:#A8A4B5; letter-spacing:0.04em; margin:30px 24px 13px;">Soundscapes</div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:0 24px;">
+            <div style="position:relative; height:94px; border-radius:18px; overflow:hidden; cursor:pointer; background:rgba(255,255,255,0.05); border:1px solid rgba(141,163,196,0.22); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); transition:transform .14s cubic-bezier(0.22,0.61,0.36,1);" style-active="transform:scale(0.97)">
+              <div style="position:absolute; inset:0; background:radial-gradient(120% 100% at 50% 0%,rgba(91,127,184,0.34),rgba(91,127,184,0) 72%);"></div>
+              <div style="position:absolute; inset:0; padding:14px; display:flex; flex-direction:column; justify-content:space-between;"><i class="ph ph-cloud-rain" style="font-size:22px; color:#C2D2EC;"></i><span style="font:400 14px 'Plus Jakarta Sans',sans-serif; color:#E8E5F0;">Rain</span></div>
+            </div>
+            <div style="position:relative; height:94px; border-radius:18px; overflow:hidden; cursor:pointer; background:rgba(255,255,255,0.05); border:1px solid rgba(141,163,196,0.22); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); transition:transform .14s cubic-bezier(0.22,0.61,0.36,1);" style-active="transform:scale(0.97)">
+              <div style="position:absolute; inset:0; background:radial-gradient(120% 100% at 50% 0%,rgba(120,160,110,0.34),rgba(120,160,110,0) 72%);"></div>
+              <div style="position:absolute; inset:0; padding:14px; display:flex; flex-direction:column; justify-content:space-between;"><i class="ph ph-tree" style="font-size:22px; color:#C3DCBB;"></i><span style="font:400 14px 'Plus Jakarta Sans',sans-serif; color:#E8E5F0;">Forest</span></div>
+            </div>
+            <div style="position:relative; height:94px; border-radius:18px; overflow:hidden; cursor:pointer; background:rgba(255,255,255,0.05); border:1px solid rgba(141,163,196,0.22); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); transition:transform .14s cubic-bezier(0.22,0.61,0.36,1);" style-active="transform:scale(0.97)">
+              <div style="position:absolute; inset:0; background:radial-gradient(120% 100% at 50% 0%,rgba(64,118,180,0.36),rgba(64,118,180,0) 72%);"></div>
+              <div style="position:absolute; inset:0; padding:14px; display:flex; flex-direction:column; justify-content:space-between;"><i class="ph ph-waves" style="font-size:22px; color:#AFCBEC;"></i><span style="font:400 14px 'Plus Jakarta Sans',sans-serif; color:#E8E5F0;">Ocean waves</span></div>
+            </div>
+            <div style="position:relative; height:94px; border-radius:18px; overflow:hidden; cursor:pointer; background:rgba(255,255,255,0.05); border:1px solid rgba(141,163,196,0.22); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); transition:transform .14s cubic-bezier(0.22,0.61,0.36,1);" style-active="transform:scale(0.97)">
+              <div style="position:absolute; inset:0; background:radial-gradient(120% 100% at 50% 0%,rgba(160,128,212,0.34),rgba(160,128,212,0) 72%);"></div>
+              <div style="position:absolute; inset:0; padding:14px; display:flex; flex-direction:column; justify-content:space-between;"><i class="ph ph-sparkle" style="font-size:22px; color:#D6C6F0;"></i><span style="font:400 14px 'Plus Jakarta Sans',sans-serif; color:#E8E5F0;">Dream peace</span></div>
+            </div>
+            <div style="position:relative; height:94px; border-radius:18px; overflow:hidden; cursor:pointer; background:rgba(255,255,255,0.05); border:1px solid rgba(141,163,196,0.22); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); transition:transform .14s cubic-bezier(0.22,0.61,0.36,1);" style-active="transform:scale(0.97)">
+              <div style="position:absolute; inset:0; background:radial-gradient(120% 100% at 50% 0%,rgba(110,150,120,0.30),rgba(110,150,120,0) 72%);"></div>
+              <div style="position:absolute; inset:0; padding:14px; display:flex; flex-direction:column; justify-content:space-between;"><i class="ph ph-bug" style="font-size:22px; color:#BAD2BC;"></i><span style="font:400 14px 'Plus Jakarta Sans',sans-serif; color:#E8E5F0;">Night crickets</span></div>
+            </div>
+            <div style="position:relative; height:94px; border-radius:18px; overflow:hidden; cursor:pointer; background:rgba(255,255,255,0.05); border:1px solid rgba(141,163,196,0.22); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); transition:transform .14s cubic-bezier(0.22,0.61,0.36,1);" style-active="transform:scale(0.97)">
+              <div style="position:absolute; inset:0; background:radial-gradient(120% 100% at 50% 0%,rgba(212,138,84,0.34),rgba(212,138,84,0) 72%);"></div>
+              <div style="position:absolute; inset:0; padding:14px; display:flex; flex-direction:column; justify-content:space-between;"><i class="ph ph-fire" style="font-size:22px; color:#F0C49A;"></i><span style="font:400 14px 'Plus Jakarta Sans',sans-serif; color:#E8E5F0;">Fireplace</span></div>
+            </div>
+            <div style="position:relative; height:94px; border-radius:18px; overflow:hidden; cursor:pointer; background:rgba(255,255,255,0.05); border:1px solid rgba(141,163,196,0.22); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); transition:transform .14s cubic-bezier(0.22,0.61,0.36,1);" style-active="transform:scale(0.97)">
+              <div style="position:absolute; inset:0; background:radial-gradient(120% 100% at 50% 0%,rgba(150,155,180,0.30),rgba(150,155,180,0) 72%);"></div>
+              <div style="position:absolute; inset:0; padding:14px; display:flex; flex-direction:column; justify-content:space-between;"><i class="ph ph-waveform" style="font-size:22px; color:#C9CCDC;"></i><span style="font:400 14px 'Plus Jakarta Sans',sans-serif; color:#E8E5F0;">White noise</span></div>
+            </div>
+            <div style="position:relative; height:94px; border-radius:18px; overflow:hidden; cursor:pointer; background:rgba(255,255,255,0.05); border:1px solid rgba(141,163,196,0.22); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); transition:transform .14s cubic-bezier(0.22,0.61,0.36,1);" style-active="transform:scale(0.97)">
+              <div style="position:absolute; inset:0; background:radial-gradient(120% 100% at 50% 0%,rgba(130,150,180,0.28),rgba(130,150,180,0) 72%);"></div>
+              <div style="position:absolute; inset:0; padding:14px; display:flex; flex-direction:column; justify-content:space-between;"><i class="ph ph-wind" style="font-size:22px; color:#C2CFE0;"></i><span style="font:400 14px 'Plus Jakarta Sans',sans-serif; color:#E8E5F0;">Wind</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ░░░░░░░░░░ SCREEN 3 — IMMERSIVE PLAYER ░░░░░░░░░░ -->
+    <div style="flex:none; width:390px;">
+      <div style="font:500 13px/1 'Plus Jakarta Sans',sans-serif; color:#6B6770; margin:0 0 4px 4px; letter-spacing:0.02em;">3 · immersive player</div>
+      <div style="font:400 12px/1.4 'Plus Jakarta Sans',sans-serif; color:#9A95A0; margin:0 0 12px 4px;">tap a theme below to crossfade the whole environment</div>
+      <div data-screen-label="Sleep — immersive player" style="width:390px; height:844px; border-radius:30px; overflow:hidden; position:relative; box-shadow:0 18px 50px rgba(14,11,26,0.45); background:#07060E;">
+
+        <!-- ── theme layers (crossfade) ── -->
+        <!-- cloudy -->
+        <div style="position:absolute; inset:0; transition:opacity 1.6s ease; opacity:{{ opCloudy }}; background:linear-gradient(178deg,#0E0B1A 0%,#1A1726 52%,#2A2142 100%);">
+          <div style="position:absolute; top:18%; left:0; width:300px; height:96px; border-radius:50%; background:radial-gradient(ellipse at center,rgba(196,190,224,0.16),rgba(196,190,224,0) 70%); filter:blur(14px); animation:cloudDrift 88s linear -8s infinite;"></div>
+          <div style="position:absolute; top:48%; left:0; width:330px; height:104px; border-radius:50%; background:radial-gradient(ellipse at center,rgba(150,140,190,0.11),rgba(150,140,190,0) 72%); filter:blur(18px); animation:cloudDrift 116s linear -40s infinite;"></div>
+          <sc-for list="{{ starsC }}" as="st" hint-placeholder-count="0"><div style="{{ st.style }}"></div></sc-for>
+          <div style="position:absolute; top:80px; right:52px; width:50px; height:50px;">
+            <div style="position:absolute; inset:-26px; border-radius:50%; background:radial-gradient(circle,rgba(232,229,240,0.42),rgba(232,229,240,0) 70%); animation:moonBreath 9s ease-in-out infinite;"></div>
+            <div style="position:absolute; inset:0; border-radius:50%; background:radial-gradient(circle at 38% 34%,#F6F3EA,#D9D3E4 78%); box-shadow:0 0 24px rgba(232,229,240,0.38);"></div>
+          </div>
+        </div>
+        <!-- rain -->
+        <div style="position:absolute; inset:0; transition:opacity 1.6s ease; opacity:{{ opRain }}; background:linear-gradient(178deg,#070C16 0%,#0E1626 52%,#15233A 100%);">
+          <div style="position:absolute; top:20%; left:0; width:340px; height:120px; border-radius:50%; background:radial-gradient(ellipse at center,rgba(60,80,110,0.30),rgba(60,80,110,0) 72%); filter:blur(20px); animation:cloudDrift 70s linear -10s infinite;"></div>
+          <div style="position:absolute; top:42%; left:0; width:300px; height:110px; border-radius:50%; background:radial-gradient(ellipse at center,rgba(45,62,92,0.32),rgba(45,62,92,0) 72%); filter:blur(22px); animation:cloudDrift 92s linear -36s infinite;"></div>
+          <sc-for list="{{ rainDrops }}" as="d" hint-placeholder-count="0"><div style="{{ d.style }}"></div></sc-for>
+          <div style="position:absolute; top:0; left:18%; width:2px; height:100%; background:linear-gradient(rgba(150,180,220,0),rgba(150,180,220,0.10),rgba(150,180,220,0)); filter:blur(2px);"></div>
+          <div style="position:absolute; top:0; left:64%; width:3px; height:100%; background:linear-gradient(rgba(150,180,220,0),rgba(150,180,220,0.08),rgba(150,180,220,0)); filter:blur(3px);"></div>
+        </div>
+        <!-- forest -->
+        <div style="position:absolute; inset:0; transition:opacity 1.6s ease; opacity:{{ opForest }}; background:linear-gradient(178deg,#070F0A 0%,#0E1B12 52%,#16261A 100%);">
+          <div style="position:absolute; top:24%; left:50%; width:360px; height:300px; transform:translateX(-50%); border-radius:50%; background:radial-gradient(circle,rgba(90,150,110,0.16),rgba(90,150,110,0) 68%); filter:blur(26px); animation:mistDrift 26s ease-in-out infinite;"></div>
+          <svg viewBox="0 0 390 240" preserveAspectRatio="none" style="position:absolute; left:0; bottom:0; width:100%; height:54%;"><path d="M0,240 L0,120 L18,120 L26,80 L34,120 L52,120 L52,240 Z M70,240 L70,140 L86,140 L94,96 L102,140 L118,140 L118,240 Z M150,240 L150,100 L168,100 L178,52 L188,100 L206,100 L206,240 Z M250,240 L250,128 L266,128 L274,84 L282,128 L298,128 L298,240 Z M330,240 L330,112 L346,112 L356,70 L366,112 L382,112 L382,240 Z" fill="rgba(10,22,14,0.92)"/></svg>
+          <sc-for list="{{ fireflies }}" as="f" hint-placeholder-count="0"><div style="{{ f.style }}"></div></sc-for>
+        </div>
+        <!-- ocean -->
+        <div style="position:absolute; inset:0; transition:opacity 1.6s ease; opacity:{{ opOcean }}; background:linear-gradient(178deg,#04101E 0%,#08203C 52%,#0E2D50 100%);">
+          <sc-for list="{{ starsC }}" as="st" hint-placeholder-count="0"><div style="{{ st.style }}"></div></sc-for>
+          <div style="position:absolute; left:0; right:0; bottom:0; height:38%; overflow:hidden; animation:waveBob 7s ease-in-out infinite;">
+            <svg viewBox="0 0 780 200" preserveAspectRatio="none" style="position:absolute; bottom:-10px; left:0; width:200%; height:100%; animation:waveSlide 18s linear infinite;"><path d="M0,80 C120,40 240,120 390,80 C540,40 660,120 780,80 L780,200 L0,200 Z" fill="rgba(46,96,150,0.55)"/></svg>
+          </div>
+          <div style="position:absolute; left:0; right:0; bottom:0; height:28%; overflow:hidden; animation:waveBob 9s ease-in-out infinite;">
+            <svg viewBox="0 0 780 200" preserveAspectRatio="none" style="position:absolute; bottom:-6px; left:0; width:200%; height:100%; animation:waveSlide 13s linear infinite reverse;"><path d="M0,90 C140,130 260,50 390,90 C520,130 640,50 780,90 L780,200 L0,200 Z" fill="rgba(70,130,190,0.45)"/></svg>
+          </div>
+        </div>
+        <!-- dream -->
+        <div style="position:absolute; inset:0; transition:opacity 1.6s ease; opacity:{{ opDream }}; background:linear-gradient(178deg,#130D22 0%,#1F1733 52%,#2A2142 100%);">
+          <div style="position:absolute; top:14%; left:8%; width:260px; height:240px; border-radius:50%; background:radial-gradient(circle,rgba(160,120,210,0.30),rgba(160,120,210,0) 70%); filter:blur(30px); animation:auroraDrift 28s ease-in-out infinite;"></div>
+          <div style="position:absolute; top:36%; right:0; width:300px; height:260px; border-radius:50%; background:radial-gradient(circle,rgba(120,150,210,0.26),rgba(120,150,210,0) 70%); filter:blur(34px); animation:auroraDrift 36s ease-in-out -12s infinite;"></div>
+          <sc-for list="{{ sparkles }}" as="sp" hint-placeholder-count="0"><div style="{{ sp.style }}"></div></sc-for>
+        </div>
+
+        <!-- ── foreground UI (theme-independent) ── -->
+        <div style="position:absolute; inset:0; display:flex; flex-direction:column; padding:54px 26px 30px;">
+          <!-- top bar -->
+          <div style="display:flex; align-items:center; gap:12px;">
+            <i class="ph ph-caret-left" style="font-size:24px; color:rgba(232,229,240,0.55); cursor:pointer;"></i>
+            <div style="font:400 13.5px 'Plus Jakarta Sans',sans-serif; color:rgba(232,229,240,0.65);">{{ sessionName }}</div>
+          </div>
+
+          <div style="flex:1;"></div>
+
+          <!-- breathing orb -->
+          <div style="display:flex; justify-content:center; align-items:center; height:200px;">
+            <div style="position:relative; width:150px; height:150px; display:grid; place-items:center;">
+              <div style="position:absolute; inset:0; border-radius:50%; background:radial-gradient(circle at 42% 38%,rgba(214,224,240,0.9),rgba(141,163,196,0.5) 55%,rgba(141,163,196,0) 75%); animation:orbBreath {{ breathDur }} ease-in-out infinite {{ orbPlay }}, orbGlow {{ breathDur }} ease-in-out infinite {{ orbPlay }};"></div>
+              <div style="font:400 12px 'Plus Jakarta Sans',sans-serif; color:rgba(20,16,30,0.55); letter-spacing:0.06em;">{{ breathWord }}</div>
+            </div>
+          </div>
+
+          <div style="flex:1;"></div>
+
+          <!-- play/pause -->
+          <div style="display:flex; justify-content:center; margin-bottom:14px;">
+            <div onClick="{{ togglePlay }}" style="width:70px; height:70px; border-radius:50%; display:grid; place-items:center; cursor:pointer; background:rgba(255,255,255,0.10); border:1px solid rgba(255,255,255,0.22); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); box-shadow:0 8px 30px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.25); transition:transform .14s cubic-bezier(0.22,0.61,0.36,1);" style-active="transform:scale(0.94)">
+              <i class="ph-fill {{ playIcon }}" style="font-size:28px; color:#EAF0FA; margin-left:{{ playNudge }};"></i>
+            </div>
+          </div>
+
+          <!-- time -->
+          <div style="text-align:center; font:400 11.5px 'Plus Jakarta Sans',sans-serif; color:rgba(232,229,240,0.45); letter-spacing:0.04em; margin-bottom:18px;">{{ elapsedText }} <span style="opacity:0.5;">/</span> {{ totalText }}</div>
+
+          <!-- theme switcher -->
+          <div style="display:flex; justify-content:center; gap:10px; margin-bottom:20px;">
+            <sc-for list="{{ themeChips }}" as="t" hint-placeholder-count="5">
+              <div onClick="{{ t.onClick }}" title="{{ t.label }}" style="{{ t.style }}"><i class="{{ t.icon }}" style="font-size:19px;"></i></div>
+            </sc-for>
+          </div>
+
+          <!-- volume -->
+          <div style="display:flex; align-items:center; gap:11px; margin-bottom:18px;">
+            <i class="ph ph-speaker-low" style="font-size:17px; color:rgba(232,229,240,0.5);"></i>
+            <input class="bwb-vol" type="range" min="0" max="100" value="{{ volume }}" onInput="{{ onVolume }}" />
+            <i class="ph ph-speaker-high" style="font-size:17px; color:rgba(232,229,240,0.5);"></i>
+          </div>
+
+          <!-- sleep timer -->
+          <div style="display:flex; align-items:center; justify-content:space-between;">
+            <div style="display:flex; align-items:center; gap:7px; font:400 12.5px 'Plus Jakarta Sans',sans-serif; color:rgba(232,229,240,0.55);"><i class="ph ph-timer" style="font-size:16px;"></i>Sleep timer</div>
+            <div style="display:flex; gap:8px;">
+              <sc-for list="{{ timerChips }}" as="c" hint-placeholder-count="3">
+                <div onClick="{{ c.onClick }}" style="{{ c.style }}">{{ c.label }}</div>
+              </sc-for>
+            </div>
+          </div>
+          <div style="text-align:right; font:400 11px 'Plus Jakarta Sans',sans-serif; color:rgba(232,229,240,0.32); margin-top:7px;">fades out gently when time's up</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1390,&quot;height&quot;:1010},&quot;reduceMotion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;},&quot;playerTheme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;cloudy&quot;,&quot;rain&quot;,&quot;forest&quot;,&quot;ocean&quot;,&quot;dream&quot;],&quot;default&quot;:&quot;ocean&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;starDensity&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:38,&quot;min&quot;:0,&quot;max&quot;:70,&quot;tsType&quot;:&quot;number&quot;}}">
+class Component extends DCLogic {
+  state = {
+    activeTheme: this.props.playerTheme || 'cloudy',
+    playing: true,
+    volume: 62,
+    timerMin: 30,
+    elapsedSec: 12,
+  };
+
+  mkStars(n, topMax) {
+    const a = [];
+    for (let i = 0; i < n; i++) {
+      const size = (Math.random() * 1.6 + 1).toFixed(2);
+      const top = (Math.random() * (topMax || 72)).toFixed(1);
+      const left = (Math.random() * 100).toFixed(1);
+      const dur = (Math.random() * 3.5 + 2.5).toFixed(2);
+      const delay = (Math.random() * 5).toFixed(2);
+      a.push({ style: 'position:absolute; top:' + top + '%; left:' + left + '%; width:' + size + 'px; height:' + size + 'px; border-radius:50%; background:#FBFAFF; box-shadow:0 0 ' + (size * 2.2).toFixed(1) + 'px rgba(232,229,240,0.85); animation:twinkle ' + dur + 's ease-in-out ' + delay + 's infinite;' });
+    }
+    return a;
+  }
+
+  mkRain(n) {
+    const a = [];
+    for (let i = 0; i < n; i++) {
+      const left = (Math.random() * 100).toFixed(1);
+      const h = (Math.random() * 12 + 12).toFixed(0);
+      const dur = (Math.random() * 0.5 + 0.55).toFixed(2);
+      const delay = (Math.random() * 1.4).toFixed(2);
+      const op = (Math.random() * 0.28 + 0.22).toFixed(2);
+      a.push({ style: 'position:absolute; top:-30px; left:' + left + '%; width:1.5px; height:' + h + 'px; border-radius:1px; background:linear-gradient(to bottom,rgba(176,200,232,0),rgba(176,200,232,' + op + ')); animation:rainFall ' + dur + 's linear ' + delay + 's infinite;' });
+    }
+    return a;
+  }
+
+  mkFireflies(n) {
+    const a = [];
+    for (let i = 0; i < n; i++) {
+      const left = (Math.random() * 90 + 5).toFixed(1);
+      const top = (Math.random() * 45 + 30).toFixed(1);
+      const s = (Math.random() * 2 + 3).toFixed(1);
+      const dur = (Math.random() * 6 + 6).toFixed(2);
+      const delay = (Math.random() * 8).toFixed(2);
+      a.push({ style: 'position:absolute; left:' + left + '%; top:' + top + '%; width:' + s + 'px; height:' + s + 'px; border-radius:50%; background:radial-gradient(circle,#EAF7B0,rgba(180,220,120,0)); box-shadow:0 0 9px rgba(200,230,140,0.85); animation:firefly ' + dur + 's ease-in-out ' + delay + 's infinite;' });
+    }
+    return a;
+  }
+
+  mkSparkles(n) {
+    const a = [];
+    for (let i = 0; i < n; i++) {
+      const left = (Math.random() * 96 + 2).toFixed(1);
+      const top = (Math.random() * 80 + 6).toFixed(1);
+      const s = (Math.random() * 2.5 + 2).toFixed(1);
+      const dur = (Math.random() * 3 + 2.5).toFixed(2);
+      const delay = (Math.random() * 5).toFixed(2);
+      a.push({ style: 'position:absolute; left:' + left + '%; top:' + top + '%; width:' + s + 'px; height:' + s + 'px; border-radius:50%; background:#E8DCFA; box-shadow:0 0 8px rgba(214,198,240,0.95); animation:sparkle ' + dur + 's ease-in-out ' + delay + 's infinite;' });
+    }
+    return a;
+  }
+
+  ensureDeco() {
+    if (this._deco) return;
+    const d = this.props.starDensity || 38;
+    this.starsA = this.mkStars(d, 72);
+    this.starsB = this.mkStars(Math.round(d * 0.8), 70);
+    this.starsC = this.mkStars(Math.round(d * 0.7), 62);
+    this.rainDrops = this.mkRain(46);
+    this.fireflies = this.mkFireflies(16);
+    this.sparkles = this.mkSparkles(26);
+    this._deco = true;
+  }
+
+
+
+  fmt(sec) {
+    const m = Math.floor(sec / 60);
+    const s = sec % 60;
+    return m + ':' + (s < 10 ? '0' + s : s);
+  }
+
+  renderVals() {
+    this.ensureDeco();
+    const st = this.state;
+    const rm = this.props.reduceMotion;
+
+    const themes = [
+      { key: 'cloudy', label: 'Cloudy night', icon: 'ph ph-cloud-moon' },
+      { key: 'rain', label: 'Rain', icon: 'ph ph-cloud-rain' },
+      { key: 'forest', label: 'Forest', icon: 'ph ph-tree' },
+      { key: 'ocean', label: 'Ocean', icon: 'ph ph-waves' },
+      { key: 'dream', label: 'Dream', icon: 'ph ph-sparkle' },
+    ];
+    const chipBase = 'width:42px; height:42px; border-radius:50%; display:grid; place-items:center; cursor:pointer; transition:transform .16s cubic-bezier(0.22,0.61,0.36,1), background .3s ease, border-color .3s ease, color .3s ease; ';
+    const themeChips = themes.map(t => {
+      const active = st.activeTheme === t.key;
+      const style = chipBase + (active
+        ? 'background:rgba(141,163,196,0.28); border:1px solid rgba(141,163,196,0.6); color:#EAF0FA; box-shadow:0 6px 18px rgba(91,127,184,0.35); transform:scale(1.06);'
+        : 'background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.14); color:rgba(232,229,240,0.55);');
+      return { label: t.label, icon: t.icon, style, onClick: () => this.setState({ activeTheme: t.key }) };
+    });
+
+    const timerBase = 'min-width:38px; height:30px; padding:0 11px; border-radius:999px; display:grid; place-items:center; cursor:pointer; font:400 12.5px \'Plus Jakarta Sans\',sans-serif; transition:background .2s ease, color .2s ease, border-color .2s ease; ';
+    const timerChips = [15, 30, 45].map(m => {
+      const active = st.timerMin === m;
+      const style = timerBase + (active
+        ? 'background:rgba(141,163,196,0.26); border:1px solid rgba(141,163,196,0.55); color:#EAF0FA;'
+        : 'background:transparent; border:1px solid rgba(255,255,255,0.16); color:rgba(232,229,240,0.55);');
+      return { label: m + 'm', style, onClick: () => this.setState({ timerMin: m, elapsedSec: Math.min(this.state.elapsedSec, m * 60) }) };
+    });
+
+    return {
+      rm: rm ? 'true' : 'false',
+      starsA: this.starsA, starsB: this.starsB, starsC: this.starsC,
+      rainDrops: this.rainDrops, fireflies: this.fireflies, sparkles: this.sparkles,
+
+      opCloudy: st.activeTheme === 'cloudy' ? '1' : '0',
+      opRain: st.activeTheme === 'rain' ? '1' : '0',
+      opForest: st.activeTheme === 'forest' ? '1' : '0',
+      opOcean: st.activeTheme === 'ocean' ? '1' : '0',
+      opDream: st.activeTheme === 'dream' ? '1' : '0',
+
+      sessionName: 'Sleep onset · fall asleep faster',
+      breathDur: '10s',
+      breathWord: st.playing ? 'breathe' : 'paused',
+      orbPlay: st.playing ? 'running' : 'paused',
+      playIcon: st.playing ? 'ph-pause' : 'ph-play',
+      playNudge: st.playing ? '0' : '3px',
+      togglePlay: () => this.setState(s => ({ playing: !s.playing })),
+
+      elapsedText: this.fmt(st.elapsedSec),
+      totalText: this.fmt(st.timerMin * 60),
+
+      themeChips, timerChips,
+      volume: st.volume,
+      onVolume: (e) => this.setState({ volume: Number(e.target.value) }),
+    };
+  }
+}
+</script>
+</body>
+</html>
